@@ -1,0 +1,76 @@
+.file-info .result-box {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center;
+    max-width: 600px;/* 폭 제한 */
+    margin: 0 auto;/* 중앙 정렬 */
+}
+
+.image-container {
+    display: inline-block;
+    /* 중앙 정렬 */
+}
+
+.result-box img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.result-box p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* 초록색 네비게이션 바 */
+.green-navbar {
+    margin-top: 20px;
+    background-color: #047857;
+    /* 초록색 */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.file-image {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.placeholder-box {
+    width: 100%;
+    height: 200px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-text {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-align: center;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.1rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+}

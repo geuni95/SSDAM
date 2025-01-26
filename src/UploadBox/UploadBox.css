@@ -1,0 +1,41 @@
+/* UploadBox.css */
+.upload-box {
+    border: 2px dashed #28a745;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+    max-width: 600px; /* 폭 제한 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+.upload-box.dragging {
+    background-color: #d4edda;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: #28a745;
+}
+
+.upload-box p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.upload-box button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-box button:hover {
+    background-color: #047857;
+}

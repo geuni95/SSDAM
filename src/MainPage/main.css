@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Cafe24Ssurround', sans-serif; /* 기본 폰트 설정 */
+}
+
+.main-page {
+    font-family: 'Cafe24Ssurround', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #047857; /* 원하는 색상으로 설정 */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 50px; /* 로고 크기 설정 */
+    height: 50px; /* 로고 크기 설정 */
+    margin-right: 10px;
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 34px;
+    color: white; /* 텍스트 색상 */
+}
+
+.navbar-links {
+    display: flex;
+    gap: 70px;
+}
+
+.navbar-item {
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    text-align: center; /* 중앙 정렬 */
+}
+.navbar-item span {
+    display: block; /* span을 블록으로 만들어 줄바꿈 효과 */
+    line-height: 1.3; /* 줄 간격을 조정 */
+}
+.navbar-item:hover {
+    color: #00ff515b; /* 마우스 올렸을 때 색상 변화 */
+}
+
+.login-btn {
+    padding: 10px 20px;
+    background-color: #00ff515b; /* 버튼 색상 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #00ff515b; /* 버튼 호버 색상 */
+}
+
+/* 미디어 쿼리 추가: 화면 크기가 1170px 이하일 때 */
+@media screen and (max-width: 1170px) {
+    .navbar {
+        padding: 10px 15px; /* 네비바 패딩 줄이기 */
+    }
+
+    .logo-image {
+        width: 40px; /* 로고 크기 약간 줄이기 */
+    }
+
+    .navbar-links {
+        gap: 15px; /* 네비바 항목들 간 간격 좁히기 */
+    }
+
+    .navbar-item {
+        font-size: 14px; /* 텍스트 크기 줄이기 */
+    }
+
+    .login-btn {
+        padding: 8px 18px; /* 로그인 버튼 크기 줄이기 */
+    }
+}
