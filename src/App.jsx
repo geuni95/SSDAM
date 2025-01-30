@@ -4,6 +4,7 @@ import MainPage from "./MainPage/MainPage"; // MainPage의 경로 수정
 import UploadBox from "./UploadBox/UploadBox";
 import FileInfo from './UploadBox/FileInfo';
 import Login from "./Login/Login";
+import SignUp from "./SignUp/SignUp";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <UploadBox />
       <FileInfo />
       <Login />
+      <SignUp />
     </div>
   );
 }
