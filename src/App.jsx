@@ -5,6 +5,7 @@ import UploadBox from "./UploadBox/UploadBox";
 import FileInfo from './UploadBox/FileInfo';
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
+import MemberInfo from "./MemberInfo/MemberInfo";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <FileInfo />
       <Login />
       <SignUp />
+      <MemberInfo />
     </div>
   );
 }

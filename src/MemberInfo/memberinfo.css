@@ -1,0 +1,112 @@
+/* 전체 컨테이너 */
+.memberinfo-container {
+    width: 100vw;
+    height: 100vh; /* 화면 높이 꽉 채우기 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    padding: 2vh;
+  }
+  
+  /* 내용 정렬 */
+  .memberinfo-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 3vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80vw;
+    max-width: 1100px;
+    height: 80vh;
+  }
+  
+  /* 이미지 섹션 */
+  .memberinfo-image {
+    width: 50%;  /* 정확히 반반 비율 유지 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh;
+  }
+  
+  .memberinfo-image img {
+    width: 100%;  /* 부모 요소에 맞춰 자동 조정 */
+    max-width: 400px; /* 너무 커지지 않도록 제한 */
+    height: auto;
+    aspect-ratio: 1 / 1; /* 가로 세로 비율 유지 */
+    object-fit: contain;
+    border-radius: 10px;
+  }
+  
+  /* 폼 섹션 */
+  .memberinfo-form {
+    width: 50%; /* 정확히 반반 비율 유지 */
+    padding: 2vh;
+    text-align: left;
+    max-width: 450px; /* 폼이 너무 넓어지지 않도록 제한 */
+  }
+  
+  .memberinfo-title {
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: #047857;
+  }
+  
+  .memberinfo-subtitle {
+    font-size: 1.8vh;
+    color: #64748b;
+    margin-bottom: 2vh;
+  }
+  
+  /* 입력 필드 */
+  .form-control {
+    height: 5vh;
+    font-size: 1.8vh;
+    border-radius: 5px;
+  }
+  
+  /* 버튼 그룹 */
+  .button-group {
+    display: flex;
+    gap: 1.5vw;
+    justify-content: center;
+    margin-top: 2vh;
+  }
+  
+  .button-group button {
+    width: 48%; /* 버튼이 한 줄에 맞도록 설정 */
+    padding: 1vh;
+    font-size: 1.8vh;
+  }
+  
+  /* 반응형 스타일 */
+  @media (max-width: 992px) {
+    .memberinfo-content {
+      flex-direction: column;
+      text-align: center;
+      width: 90vw;
+      min-width: 300px;
+      height: auto;
+    }
+  
+    .memberinfo-image,
+    .memberinfo-form {
+      width: 100%;
+    }
+  
+    .memberinfo-image img {
+      width: 80vw;
+      max-width: 300px;
+      max-height: 40vh;
+      aspect-ratio: 1 / 1;
+    }
+  
+    .button-group button {
+      width: 100%;
+    }
+  }
+  
