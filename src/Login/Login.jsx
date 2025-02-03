@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Link 컴포넌트 import
 import computerLoginBro1 from "../assets/images/computer-login-bro-1.png"; // 이미지 경로 수정
 import "./login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,6 +7,11 @@ import { FaGoogle, FaApple } from "react-icons/fa";
 import { SiNaver, SiKakao } from "react-icons/si";
 
 const Login = () => {
+  // 소셜 로그인 함수 (예시로 작성)
+  const handleSocialLogin = (platform) => {
+    console.log(`${platform}로 로그인`);
+  };
+
   return (
     <div className="login-container">
       <div className="login-content">
@@ -61,7 +67,6 @@ const Login = () => {
             </button>
           </form>
 
-          
           <div className="login-links">
             <a href="#" className="forgot-link">
               이메일을 잊어버렸나요?
@@ -72,7 +77,8 @@ const Login = () => {
           </div>
 
           <p className="signup-text">
-            아이디가 없으신가요? <a href="#" className="signup-link">회원가입</a>
+            아이디가 없으신가요? 
+            <Link to="/signup" className="signup-link">회원가입</Link>  {/* 회원가입 링크를 Link로 변경 */}
           </p>
         </div>
       </div>
