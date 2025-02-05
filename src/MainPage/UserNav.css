@@ -1,38 +1,56 @@
-.user-nav {
-  position: fixed;
-  top: 260px; /* ✅ 화면 하단에서 30px 위로 */
-  right: 30px;  /* ✅ 화면 오른쪽에서 30px 왼쪽으로 */
-  background-color: #047857;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 300px;
+.user-nav-container {
+  position: relative;
+  display: inline-block;
+  z-index: 999;
 }
 
-.user-nav h3 {
-  margin-bottom: 10px;
-}
-
-.user-email {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.user-btn {
-  display: block;
-  width: 100%;
+/* ✅ 버튼 크기 및 폰트 크기 반응형 조정 */
+.user-nav-button {
+  padding: 5px 10px;
   background-color: white;
   color: #047857;
-  border: none;
-  padding: 10px;
-  margin-top: 5px;
+  font-weight: bold;
+  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
+  
+  width: clamp(70px, 10vw, 120px); /* ✅ 10vw를 기준으로 최소 70px, 최대 120px */
+  text-align: center;
+  font-size: clamp(12px, 2vw, 26px); /* ✅ 기본 폰트 크기 설정 (화면 크기에 맞춰 조절) */
+  
+  transform: translateX(-78%);
 }
 
-.user-btn.logout {
-  background-color: #dc2626;
-  color: white;
+/* ✅ 드롭다운이 버튼 아래에서 열리도록 유지 */
+.user-nav-dropdown {
+  position: absolute;
+  left: auto;
+  right: clamp(10%, 20vw, 10%); /* ✅ 작은 화면에서는 더 왼쪽으로 이동, 큰 화면에서는 오른쪽 유지 */
+  top: 120%;
+  margin-top: 8px;
+  
+  width: clamp(150px, 20vw, 200px); /* ✅ 최소 150px, 기본 20vw, 최대 200px */
+  max-width: 90vw; /* ✅ 전체 너비의 90% 이하로 제한 */
+  
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* ✅ 반응형 조정: 작은 화면에서는 버튼 크기 및 드롭다운 위치 자동 조절 */
+@media (max-width: 600px) {
+  
+  .user-nav-button {
+    font-size: clamp(10px, 2.5vw, 14px); /* ✅ 작은 화면에서는 폰트 크기 축소 */
+    width: clamp(60px, 10vw, 80px); /* ✅ 버튼 크기 축소 */
+    transform: translateX(-5%);
+  }
+
+  .user-nav-dropdown {
+    right: 50%; /* ✅ 작은 화면에서는 가운데 정렬 */
+    transform: translateX(50%);
+    width: clamp(120px, 30vw, 180px); /* ✅ 작은 화면에서 적절한 크기로 조정 */
+  }
 }

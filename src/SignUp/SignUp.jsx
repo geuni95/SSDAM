@@ -7,9 +7,10 @@ const SignUp = () => {
     const navigate = useNavigate(); // 페이지 이동을 위한 useNavigate 훅
     const [formData, setFormData] = useState({
         name: "",
-        username: "",
+        nick_name: "",
         email: "",
-        password: "",
+        pass: "",
+        role: "",
         termsCheck: false
     });
 
@@ -34,9 +35,10 @@ const SignUp = () => {
                 },
                 body: JSON.stringify({
                     name: formData.name,
-                    username: formData.username,
+                    nick_name: formData.nick_name,
                     email: formData.email,
-                    pass: formData.password // Spring Boot에서 `pass` 필드로 받으므로 맞춰줌
+                    pass: formData.pass,
+                    role: formData.role || "user"
                 })
             });
 
@@ -69,7 +71,7 @@ const SignUp = () => {
                     </div>
                     <div className="mb-3">
                         <label className="form-label">닉네임</label>
-                        <input type="text" className="form-control" name="username" placeholder="Username" value={formData.username} onChange={handleChange} required />
+                        <input type="text" className="form-control" name="nick_name" placeholder="Nickname" value={formData.nick_name} onChange={handleChange} required />
                     </div>
                     <div className="mb-3">
                         <label className="form-label">이메일</label>
@@ -77,7 +79,7 @@ const SignUp = () => {
                     </div>
                     <div className="mb-3">
                         <label className="form-label">비밀번호</label>
-                        <input type="password" className="form-control" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+                        <input type="password" className="form-control" name="pass" placeholder="Password" value={formData.pass} onChange={handleChange} required />
                     </div>
                     <div className="form-check mb-3">
                         <input type="checkbox" className="form-check-input" id="termsCheck" name="termsCheck" checked={formData.termsCheck} onChange={handleChange} required />

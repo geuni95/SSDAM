@@ -1,3 +1,4 @@
+/* 전체 컨테이너: 화면 중앙 정렬 */
 .signup-container {
     display: flex;
     flex-direction: row;
@@ -5,10 +6,12 @@
     align-items: center;
     height: 100vh;
     background-color: #f9f9f9;
+    padding: 20px;
 }
 
+/* 이미지 영역 */
 .signup-image {
-    width: 50%;
+    width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,22 +22,95 @@
     height: auto;
 }
 
+/* 회원가입 폼 영역 */
 .signup-form {
-    width: 40%;
+    width: 45%;
+    max-width: 500px;
     background: white;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* 제목 스타일 */
 .signup-title {
     text-align: center;
     color: #047857;
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 1.5rem;
 }
 
+/* 입력 필드 스타일 */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* 이메일 & 닉네임 입력 필드와 버튼 정렬 */
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group .form-control {
+    flex: 1; /* 입력 필드가 버튼을 제외한 공간을 차지하도록 설정 */
+}
+
+.input-group .btn {
+    white-space: nowrap; /* 버튼이 한 줄로 유지되도록 설정 */
+    margin-left: 10px;
+}
+
+/* 비밀번호 & 비밀번호 확인 필드 정렬 */
+.password-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 오류 메시지 스타일 */
+.text-danger, .text-success {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* 회원가입 버튼 스타일 */
+.btn-success {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 로그인 링크 스타일 */
 .login-link {
     color: #047857;
     cursor: pointer;
     text-decoration: underline;
+}
+
+/* 반응형 레이아웃 */
+@media screen and (max-width: 768px) {
+    .signup-container {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+    }
+    
+    .signup-image {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .signup-form {
+        width: 100%;
+    }
 }

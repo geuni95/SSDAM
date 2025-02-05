@@ -42,10 +42,14 @@ const Login = () => {
       if (data.result === 1) {
         alert("로그인 성공!");
         
-        // ✅ localStorage에 백엔드 응답 데이터 저장 (name 추가)
+        // ✅ localStorage에 백엔드 응답 데이터 저장 
         localStorage.setItem("user", JSON.stringify({
+          idx: data.idx,
           email: data.email,
-          name: data.name // name 추가
+          name: data.name,
+          nick_name: data.nick_name,
+          role: data.role || "user" 
+          
         }));
         
         navigate("/"); // 로그인 성공 시 메인 페이지로 이동
@@ -95,7 +99,8 @@ const Login = () => {
                 type="text"
                 className="form-control"
                 name="email"
-                placeholder="아이디 입력"
+                pattern=".+@.+\..+"  
+                title="올바른 이메일 주소를 입력해주세요 (예: example@email.com)"
                 value={formData.email}
                 onChange={handleChange}
                 required
