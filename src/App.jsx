@@ -7,6 +7,7 @@ import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
 import MemberInfo from "./MemberInfo/MemberInfo";
 import MailSearch from "./MailSearch/MailSearch";
+import PassWord from "./PassWord/PassWord";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/member-info" element={<MemberInfo />} />
           <Route path="/mail-search" element={<MailSearch />} />
+          <Route path="/password" element={<PassWord />} />
         </Routes>
       </div>
     </Router>
