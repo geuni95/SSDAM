@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 기본적인 body 스타일 설정 */
+body {
+    font-family: 'Cafe24Ssurround', sans-serif; /* 기본 폰트 적용 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 전체 페이지 컨테이너 */
+.container {
+    font-family: "Cafe24Ssurround", sans-serif; 
+    text-align: center;
+    color: #333; /* 기본 텍스트 색상 */
+}
+
+
+/* 네비게이션 바 스타일 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 2vw; /* 패딩을 vw로 설정하여 화면 크기에 따라 비례적으로 조정 */
+    background-color: #047857; /* 원하는 색상으로 설정 */
+    
+}
+/* 네비게이션 링크 컨테이너 */
+.navbar-links {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    flex-grow: 1; /* 가로 공간 채우기 */
+    gap: 2vw; /* 링크 간격 */
+    height: 100%; /* 부모 높이 맞추기 */
+    margin-left: -7vw; /* 왼쪽으로 살짝 이동 */
+}
+
+/* 네비게이션 개별 링크 스타일 */
+.navbar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    font-size: 1.2vw; /* 반응형 크기 */
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: 8vw; /* 최소 너비 설정 (텍스트 길이 차이 해결) */
+    
+}
+
+/* 로고 텍스트 스타일 */
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo-image {
+    width: 4vw; /* 로고 크기를 vw로 설정하여 화면 크기에 맞게 줄어들도록 설정 */
+    height: auto; /* 비율에 맞춰서 자동으로 높이 조정 */
+    margin-right: 1vw; /* 로고와 텍스트 사이의 간격을 vw로 설정 */
+}
+.logo-text p {
+    margin: 0;
+    font-size: 2vw; /* 글씨 크기를 vw로 설정하여 화면 너비에 맞게 유동적으로 줄어듦 */
+    color: white; /* 텍스트 색상 */
+}
+/* 로그인 버튼 스타일 */
+.login-btn {
+    font-size: clamp(12px, 1.2vw, 16px); /* 최소 12px, 기본 1.2vw, 최대 16px */
+    padding: 0.5vw 1vw; /* 화면 크기에 따라 조정 */
+    background-color: #00ff515b;
+    color: white;
+    border: 1px solid #047857;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+
+    /* 버튼 크기 반응형 설정 */
+    width: clamp(60px, 8vw, 100px); /* 최소 60px, 기본 8vw, 최대 100px */
+    min-width: 60px;
+    max-width: 100px;
+    height: auto;
+
+    /* 위치 조정 */
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%); /* 세로 중앙 정렬 */
+}
+
+/* 버튼 호버 효과 */
+.login-btn:hover {
+    background-color: #047857;
+}
+
+/* 메인 이미지 설정 */
+.hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+}
+
+.hero img {
+    width: 100%; /* 전체 화면 너비에 맞춤 */
+    height: auto; /* 비율 유지하면서 조절 */
+    max-height: 100vh; /* 화면 높이에 맞게 자동 조정 */
+    object-fit: contain; /* 이미지가 잘리지 않도록 함 */
+}
+
+/* --------------- 📌 공통 섹션 스타일 --------------- */
+
+/* 모든 섹션 공통 여백 설정 */
+section {
+    padding: 60px 0; /* 위아래 여백 */
+}
+
+/* --------------- 👋 인트로 섹션 스타일 --------------- */
+
+/* 인트로 섹션 배경 */
+.intro {
+    background: #f8f9fa; /* 연한 회색 배경 */
+    padding: 50px 20px; /* 내부 여백 */
+}
+
+/* 인트로 제목 스타일 */
+.intro h1 {
+    font-size: 36px; /* 제목 크기 */
+    color: #047857; /* 초록색 텍스트 */
+}
+
+/* 인트로 본문 스타일 */
+.intro p {
+    font-size: 20px; /* 본문 크기 */
+}
+/* 소개 섹션 스타일 */
+.about {
+    text-align: center;
+    padding: 40px 20px; /* 위아래 여백 */
+  }
+  
+  /* "쓰담쓰담은.." 제목 스타일 */
+  .about h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #047857; /* 초록색 적용 */
+    margin-bottom: 10px;
+  }
+  
+  /* 설명 문단 스타일 */
+  .about p {
+    font-size: 18px;
+    line-height: 1.6; /* 줄 간격 조정 */
+    color: #333;
+    max-width: 700px;
+    margin: 0 auto; /* 중앙 정렬 */
+  }
+/* --------------- ⭐ 특징(Features) 섹션 스타일 --------------- */
+
+/* 특징 섹션 제목 스타일 */
+.features h2,
+.categories h2 {
+    font-size: 32px; /* 제목 크기 */
+    color: #047857; /* 초록색 */
+    margin-bottom: 20px; /* 아래 여백 */
+}
+
+/* 특징 섹션 본문 스타일 */
+.features p,
+.categories p {
+    font-size: 18px; /* 본문 크기 */
+    margin-bottom: 40px; /* 아래 여백 */
+}
+
+/* 특징 섹션 내 아이콘 스타일 */
+.features img,
+.categories img {
+    width: 80px; /* 아이콘 크기 */
+    height: 80px;
+    margin-bottom: 10px; /* 아이콘 아래 여백 */
+}
+
+/* 특징 섹션 내 작은 제목 스타일 */
+.features h3,
+.categories h3 {
+    font-size: 22px; /* 작은 제목 크기 */
+    margin-bottom: 10px; /* 아래 여백 */
+}
+
+/* --------------- 📌 푸터(하단) 스타일 --------------- */
+
+/* 페이지 하단 푸터 스타일 */
+.footer {
+    background-color: #047857; /* 초록색 배경 */
+    color: white; /* 흰색 글자 */
+    padding: 20px 0; /* 위아래 여백 */
+    margin-top: 40px; /* 위쪽과의 간격 */
+}

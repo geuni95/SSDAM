@@ -9,6 +9,7 @@ import MemberInfo from "./MemberInfo/MemberInfo";
 import MailSearch from "./MailSearch/MailSearch";
 import PassWord from "./PassWord/PassWord";
 import Board from "./Board/Board";
+import InforMation from "./InforMation/InforMation";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/mail-search" element={<MailSearch />} />
           <Route path="/password" element={<PassWord />} />
           <Route path="/board" element={<Board />} />
+          <Route path="/information" element={<InforMation />} />
         </Routes>
       </div>
     </Router>
