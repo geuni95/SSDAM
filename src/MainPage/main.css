@@ -45,7 +45,7 @@ body {
 .logo-text p {
     margin: 0;
     font-size: 3vw; /* 글씨 크기를 vw로 설정하여 화면 너비에 맞게 유동적으로 줄어듦 */
-    color: white; /* 텍스트 색상 */
+    color: rgb(255, 255, 255); /* 텍스트 색상 */
 }
 
 .navbar-links {
@@ -61,7 +61,7 @@ body {
 
 .navbar-item {
     font-size: 1.6vw; /* 글씨 크기를 vw로 설정하여 화면 크기에 맞게 유동적으로 줄어듦 */
-    color: white;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     text-align: center; /* 중앙 정렬 */
 }

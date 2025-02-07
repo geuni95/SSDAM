@@ -50,7 +50,7 @@ export const MainPage = () => {
               {/* ✅ 로그인 여부에 따라 프로필 or 로그인 버튼 */}
               <div className="navbar-right flex items-center">
                   {!user ? (
-                      <button className="login-button" onClick={() => navigate("/login")}>
+                      <button className="login-btn" onClick={() => navigate("/login")}>
                           로그인
                       </button>
                   ) : (

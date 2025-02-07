@@ -16,7 +16,7 @@
   
   width: clamp(70px, 10vw, 120px); /* ✅ 10vw를 기준으로 최소 70px, 최대 120px */
   text-align: center;
-  font-size: clamp(12px, 2vw, 26px); /* ✅ 기본 폰트 크기 설정 (화면 크기에 맞춰 조절) */
+  font-size: clamp(10px, 10vw, 15px); /* ✅ 기본 폰트 크기 설정 (화면 크기에 맞춰 조절) */
   
   transform: translateX(-78%);
 }
@@ -31,7 +31,7 @@
   
   width: clamp(150px, 20vw, 200px); /* ✅ 최소 150px, 기본 20vw, 최대 200px */
   max-width: 90vw; /* ✅ 전체 너비의 90% 이하로 제한 */
-  
+  color: black !important;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -43,7 +43,7 @@
 @media (max-width: 600px) {
   
   .user-nav-button {
-    font-size: clamp(10px, 2.5vw, 14px); /* ✅ 작은 화면에서는 폰트 크기 축소 */
+    font-size: clamp(6px, 2.5vw, 6px); /* ✅ 작은 화면에서는 폰트 크기 축소 */
     width: clamp(60px, 10vw, 80px); /* ✅ 버튼 크기 축소 */
     transform: translateX(-5%);
   }
