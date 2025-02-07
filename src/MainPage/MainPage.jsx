@@ -41,7 +41,9 @@ export const MainPage = () => {
                   <div className="navbar-item"><span>분류</span><span>및 폐기</span></div>
                   <div className="navbar-item"><span>지역별</span><span>폐기물 처리</span></div>
                   <div className="navbar-item"><span>기부</span><span>및 중고거래</span></div>
-                  <div className="navbar-item"><span>쓰담</span><span>커뮤니티</span></div>
+                  <div className="navbar-item" onClick={() => navigate("/commBoardList")}>
+                    <span>쓰담</span><span>커뮤니티</span>
+                  </div>
                   <div className="navbar-item"><span>폐기물</span><span>캘린더</span></div>
               </div>
 

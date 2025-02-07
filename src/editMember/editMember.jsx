@@ -39,11 +39,11 @@ const EditMember = () => {
           requestData.pass = formData.pass;
       }
 
-      console.log("🔍 서버로 전송할 데이터:", requestData); // 
+      console.log(" 서버로 전송할 데이터:", requestData); // 
 
       try {
           const response = await fetch("http://localhost:8587/api/edit", {
-              method: "POST",
+              method: "PATCH",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(requestData) // 비밀번호가 없으면 pass 필드 제외됨
           });

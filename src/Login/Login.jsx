@@ -25,7 +25,7 @@ const Login = () => {
 
   // 로그인 요청 함수
   const handleSubmit = async (event) => {
-    event.preventDefault(); // 기본 폼 제출 방지
+    event.preventDefault(); 
 
     try {
       const response = await fetch("http://localhost:8587/api/login", {
@@ -93,12 +93,13 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
-                아이디
+                아이디(email)
               </label>
               <input
                 type="text"
                 className="form-control"
                 name="email"
+                placeholder="email 입력"
                 pattern=".+@.+\..+"  
                 title="올바른 이메일 주소를 입력해주세요 (예: example@email.com)"
                 value={formData.email}
@@ -135,10 +136,11 @@ const Login = () => {
           </form>
 
           <div className="login-links">
-            <a href="#" className="forgot-link">
+            <a href="/mailSearch" className="forgot-link">
               이메일을 잊어버렸나요?
             </a>
-            <a href="#" className="forgot-link">
+  
+            <a href="/pwdSearch" className="forgot-link">
               비밀번호를 잊어버렸나요?
             </a>
           </div>
