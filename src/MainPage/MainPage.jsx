@@ -1,29 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./main.css"; // CSS 파일을 불러옵니다.
 import logo from "../assets/images/logo.svg"; // 로고 파일을 import
 import { useNavigate } from "react-router-dom";
 import UploadBox from "../UploadBox/UploadBox";
 import FileInfo from "../UploadBox/FileInfo";
-import UserNav from "./UserNav.jsx"; // ✅ 새로운 네비게이션 바 추가
+import UserNav from "./UserNav.jsx"; // ✅ 유저 네비게이션 추가
 import "./UserNav.css"; // CSS 파일을 불러옵니다.
 
-export const MainPage = () => {
+export const MainPage = ({ user, onLogout }) => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-      const storedUser = localStorage.getItem("user");
-      if (storedUser) {
-          setUser(JSON.parse(storedUser));
-      }
-  }, []);
-
-  // 로그아웃 함수
-  const handleLogout = () => {
-      localStorage.removeItem("user");
-      setUser(null);
-      navigate("/");
-  };
 
   return (
       <div className="main-page">
@@ -54,8 +39,7 @@ export const MainPage = () => {
                           로그인
                       </button>
                   ) : (
-                    
-                      <UserNav user={user} onLogout={handleLogout} />
+                      <UserNav user={user} onLogout={onLogout} />
                   )}
               </div>
           </nav>
@@ -67,5 +51,5 @@ export const MainPage = () => {
       </div>
   );
 };
-  
-  export default MainPage;
+
+export default MainPage;

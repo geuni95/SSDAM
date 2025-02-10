@@ -7,6 +7,9 @@
     height: 100vh;
     background-color: #f9f9f9;
     padding: 20px;
+   
+
+
 }
 
 /* 이미지 영역 */
@@ -113,4 +116,10 @@
     .signup-form {
         width: 100%;
     }
+}
+
+input[type="password"] {
+    color: black !important;  /* ✅ 비밀번호 입력 텍스트 색상 */
+    background-color: white !important;  /* ✅ 배경색을 흰색으로 유지 */
+    -webkit-text-security: disc; /* ✅ 웹킷 브라우저에서 비밀번호 입력을 '●'로 표시 */
 }

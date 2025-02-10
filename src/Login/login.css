@@ -2,6 +2,8 @@
 body {
     background-color: #ffffff;
     font-family: "Nunito", sans-serif;
+    
+    
   }
   
   /* 로그인 전체 컨테이너 */
@@ -11,6 +13,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f9fafb;
+    transform: scale(1.4);
   }
   
   /* 로그인 내용 정렬 */
@@ -143,8 +146,15 @@ body {
     transform: scale(1.1);
   }
   
-  .form-control {
-    color: black !important;  /* ✅ 글자색을 검정으로 설정 */
-    background-color: white !important;  /* ✅ 배경색을 흰색으로 설정 */
-    border: 1px solid #ccc;  /* ✅ 테두리 추가 */
-  }
+  .form-control::placeholder {
+    font-family: "Nunito", sans-serif !important;  /* ✅ 동일한 글꼴 적용 */
+    font-size: 16px !important;  /* ✅ 크기 통일 */
+    color: #a0aec0 !important;  /* ✅ 연한 회색 */
+    font-weight: 999 !important;  /* ✅ 두께 설정 */
+    opacity: 1 !important;  /* ✅ 투명도 문제 방지 */
+}
+
+input[type="password"] {
+  font-family: "Arial", sans-serif !important;  /* ✅ 비밀번호 필드만 Arial로 강제 설정 */
+}
+

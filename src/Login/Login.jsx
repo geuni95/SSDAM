@@ -7,8 +7,8 @@ import { FaGoogle, FaApple } from "react-icons/fa";
 import { SiNaver, SiKakao } from "react-icons/si";
 import { Link } from "react-router-dom";
 
-const Login = () => {
-  const navigate = useNavigate(); // 페이지 이동을 위한 useNavigate 훅
+const Login = ({ setUser }) => { // ✅ props로 setUser 받기
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     pass: ""
@@ -25,7 +25,7 @@ const Login = () => {
 
   // 로그인 요청 함수
   const handleSubmit = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     try {
       const response = await fetch("http://localhost:8587/api/login", {
@@ -37,27 +37,31 @@ const Login = () => {
       });
 
       const data = await response.json();
-      console.log("로그인 응답:", data);
+      console.log("📌 로그인 응답:", data);
 
       if (data.result === 1) {
         alert("로그인 성공!");
-        
+
         // ✅ localStorage에 백엔드 응답 데이터 저장 
-        localStorage.setItem("user", JSON.stringify({
+        const userData = {
           idx: data.idx,
           email: data.email,
           name: data.name,
           nick_name: data.nick_name,
           role: data.role || "user" 
-          
-        }));
+        };
+
+        localStorage.setItem("user", JSON.stringify(userData));
+
+        // ✅ 전역 상태 업데이트
+        setUser(userData);
         
         navigate("/"); // 로그인 성공 시 메인 페이지로 이동
       } else {
         alert("로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.");
       }
     } catch (error) {
-      console.error("로그인 요청 중 오류 발생:", error);
+      console.error("❌ 로그인 요청 중 오류 발생:", error);
       alert("서버 오류 발생! 다시 시도해주세요.");
     }
   };
@@ -116,7 +120,7 @@ const Login = () => {
                 type="password"
                 className="form-control"
                 name="pass"
-                placeholder="비밀번호 입력"
+                placeholder="password 입력"
                 value={formData.pass}
                 onChange={handleChange}
                 required

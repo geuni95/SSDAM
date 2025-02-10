@@ -5,7 +5,7 @@ import ReactPaginate from "react-paginate";
 import logo from "../assets/images/logo.svg";
 import "./board.css";
 
-const Board = () => {
+const Board = ({ user, onLogout }) => { // ✅ App.js에서 전달받은 user, onLogout 사용
   const navigate = useNavigate();
   const [data, setData] = useState({ boardList: [], totalPages: 1 });
   const [currentPage, setCurrentPage] = useState(0);
@@ -45,7 +45,13 @@ const Board = () => {
           <button onClick={() => navigate("/")}>홈</button>
           <button>정보</button>
           <button>서비스</button>
-          <button className="login-btn">로그인</button>
+
+          {/* ✅ 로그인 여부에 따라 버튼 변경 */}
+          {!user ? (
+            <button className="login-btn" onClick={() => navigate("/login")}>로그인</button>
+          ) : (
+            <button className="logout-btn" onClick={onLogout}>로그아웃</button>
+          )}
         </div>
       </nav>
 
@@ -66,7 +72,7 @@ const Board = () => {
             {data.boardList.map((row, index) => (
               <tr
                 key={row.board_idx}
-                onClick={() => navigate(`/board/${row.board_idx}`)}
+                onClick={() => navigate(`/commBoardView/${row.board_idx}`)}
               >
                 {/* ✅ 전체 게시글 개수를 기준으로 번호를 내림차순 정렬 */}
                 <td>{data.totalCount - currentPage * rowsPerPage - index}</td>
@@ -78,6 +84,15 @@ const Board = () => {
             ))}
           </tbody>
         </Table>
+
+        {/* ✅ 로그인한 사용자만 게시글 작성 버튼 보이기 */}
+        {user && (
+          <div className="btn-write">
+            <button className="btn btn-success" onClick={() => navigate("/commBoardWrite")}>
+              게시글 작성
+            </button>
+          </div>
+        )}
       </div>
 
       <div className="pagination-container">
