@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'Cafe24Ssurround', sans-serif; /* 기본 폰트 설정 */
+    margin: 0;
+    padding: 0;
+}
+/* ✅ 전체 페이지 스타일 */
+.use-trade-write-container {
+    font-family: 'Cafe24Ssurround', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ✅ 네비게이션 바 */
+.navbar {
+    background-color: #047857;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 18px;
+    color: white;
+}
+
+.login-btn {
+    background-color: white;
+    color: #047857;
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: none;
+}
+
+/* ✅ 글쓰기 폼 컨테이너 */
+.write-form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* ✅ 카드 스타일 */
+.write-card {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ 사진 업로드 컨테이너 */
+.image-upload-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.image-upload-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+    border: 2px dashed #79ac78;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    color: gray;
+}
+
+.image-upload-box input {
+    display: none;
+}
+
+.upload-placeholder {
+    font-size: 16px;
+}
+
+.uploaded-image {
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 5px;
+}
+
+/* ✅ 분류 선택 */
+.category-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ✅ 버튼 그룹 */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* ✅ 푸터 */
+.footer {
+    background-color: #047857;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}

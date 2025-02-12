@@ -11,6 +11,7 @@ import PassWord from "./PassWord/PassWord";
 import Board from "./Board/Board";
 import InforMation from "./InforMation/InforMation";
 import UseTrade from "./UseTrade/UseTrade";
+import UseTradeWrite from "./UseTradeWrite/UseTradeWrite";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/board" element={<Board />} />
           <Route path="/information" element={<InforMation />} />
           <Route path="/usetrade" element={<UseTrade />} />
+          <Route path="/usetradewrite" element={<UseTradeWrite />} />
         </Routes>
       </div>
     </Router>
