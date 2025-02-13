@@ -9,6 +9,7 @@ import "./UserNav.css"; // CSS 파일을 불러옵니다.
 
 export const MainPage = ({ user, onLogout }) => {
   const navigate = useNavigate();
+  
 
   return (
       <div className="main-page">
@@ -35,9 +36,9 @@ export const MainPage = ({ user, onLogout }) => {
               {/* ✅ 로그인 여부에 따라 프로필 or 로그인 버튼 */}
               <div className="navbar-right flex items-center">
                   {!user ? (
-                      <button className="login-btn" onClick={() => navigate("/login")}>
-                          로그인
-                      </button>
+                      <button className="login-btn" onClick={() => navigate("/login", { state: { from: window.location.pathname } })}>
+                      로그인
+                  </button>                  
                   ) : (
                       <UserNav user={user} onLogout={onLogout} />
                   )}

@@ -15,54 +15,45 @@ const SignUp = () => {
         termsCheck: false
     });
 
-    // 입력 값 변경 시 상태 업데이트
+    const [emailStatus, setEmailStatus] = useState(""); // ✅ 이메일 검사 결과 메시지 저장
+
+    // 📍 입력 값 변경 시 상태 업데이트
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
             [name]: type === "checkbox" ? checked : value
         });
-
-        validateField(e.target);
     };
 
-    // 🔹 실시간 입력 유효성 검사 (브라우저 기본 메시지 적용)
-    const validateField = (input) => {
-        let error = "";
-        const { name, value } = input;
+    // 🛠️ 이메일 중복 및 유효성 검사 함수
+    const handleEmailCheck = async () => {
+        const email = formData.email;
 
-        switch (name) {
-            case "name":
-                if (!/^[가-힣a-zA-Z]{1,10}$/.test(value)) {
-                    error = "이름은 10자 이내의 문자만 입력 가능합니다.";
-                }
-                break;
-            case "nick_name":
-                if (value.length > 10) {
-                    error = "닉네임은 최대 10자까지 입력 가능합니다.";
-                }
-                break;
-            case "email":
-                if (value.length > 30 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-                    error = "올바른 이메일 형식을 입력하세요.";
-                }
-                break;
-            case "pass":
-                if (value.length < 9 || value.length > 30 || !/[A-Z]/.test(value) || !/[!@#$%^&*]/.test(value)) {
-                    error = "비밀번호는 9~30자이며, 대문자와 특수문자를 포함해야 합니다.";
-                }
-                break;
-            case "confirmPass":
-                if (value !== formData.pass) {
-                    error = "비밀번호가 일치하지 않습니다.";
-                }
-                break;
-            default:
-                break;
+        // 1️⃣ 이메일 유효성 검사
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            setEmailStatus("⚠️ 올바른 이메일 형식을 입력해 주세요!");
+            return;
         }
 
-        // 🔹 브라우저 기본 유효성 검사 메시지 적용
-        input.setCustomValidity(error);
+        // 2️⃣ 이메일 중복 체크 요청
+        try {
+            const response = await fetch(`http://localhost:8587/api/checkEmail?email=${email}`, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" }
+            });
+
+            const data = await response.json();
+            if (response.status === 200) {
+                setEmailStatus("✅ 사용 가능한 이메일입니다!");
+            } else if (response.status === 409) {
+                setEmailStatus("🚨 이미 사용 중인 이메일입니다!");
+            }
+        } catch (error) {
+            console.error("❌ 이메일 중복 확인 중 오류 발생:", error);
+            setEmailStatus("🔌 서버 오류 발생. 다시 시도해 주세요.");
+        }
     };
 
     // 🚀 폼 제출 시 실행되는 함수
@@ -91,16 +82,19 @@ const SignUp = () => {
             console.log("회원가입 응답:", data);
 
             if (data.result === 1) {
-                alert("회원가입 성공!");
+                alert("🎉 회원가입 성공!");
                 navigate("/login");
             } else {
-                alert("회원가입 실패: 다시 시도해주세요.");
+                alert(`❌ 회원가입 실패: ${data.message}`);
             }
         } catch (error) {
             console.error("회원가입 요청 중 오류 발생:", error);
-            alert("서버 오류 발생! 다시 시도해주세요.");
+            alert("❌ 서버 오류 발생! 다시 시도해주세요.");
         }
     };
+
+
+
 
     return (
         <div className="signup-container">
@@ -122,11 +116,33 @@ const SignUp = () => {
                             value={formData.nick_name} onChange={handleChange} onInput={(e) => validateField(e.target)} required />
                     </div>
 
+                    {/* ✉️ 이메일 입력 */}
                     <div className="mb-3">
                         <label className="form-label">이메일</label>
-                        <input type="email" className="form-control" name="email" placeholder="Email"
-                            value={formData.email} onChange={handleChange} onInput={(e) => validateField(e.target)} required />
+                        <div className="d-flex">
+                            <input
+                                type="email"
+                                className="form-control"
+                                name="email"
+                                placeholder="이메일을 입력하세요"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                            />
+                            <button
+                                type="button"
+                                className="btn btn-outline-primary ms-2"
+                                onClick={handleEmailCheck}
+                            >
+                                 중복{`\n`}이메일{`\n`}확인
+                            </button>
+                        </div>
+                        {/* 🔍 이메일 검사 결과 메시지 출력 */}
+                        <div className="mt-2" style={{ color: emailStatus.startsWith("✅") ? "green" : "red" }}>
+                            {emailStatus}
+                        </div>
                     </div>
+
 
                     <div className="mb-3">
                         <label className="form-label">비밀번호</label>

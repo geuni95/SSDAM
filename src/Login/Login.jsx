@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import computerLoginBro1 from "../assets/images/computer-login-bro-1.png"; // 이미지 경로 수정
 import "./login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 
 const Login = ({ setUser }) => { // ✅ props로 setUser 받기
   const navigate = useNavigate();
+  const location = useLocation(); // ✅ 이전 페이지 정보 가져오기
+  
   const [formData, setFormData] = useState({
     email: "",
     pass: ""
@@ -24,47 +26,46 @@ const Login = ({ setUser }) => { // ✅ props로 setUser 받기
   };
 
   // 로그인 요청 함수
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    try {
+  try {
       const response = await fetch("http://localhost:8587/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify(formData)
       });
 
       const data = await response.json();
-      console.log("📌 로그인 응답:", data);
-
       if (data.result === 1) {
-        alert("로그인 성공!");
+          alert("로그인 성공!");
 
-        // ✅ localStorage에 백엔드 응답 데이터 저장 
-        const userData = {
-          idx: data.idx,
-          email: data.email,
-          name: data.name,
-          nick_name: data.nick_name,
-          role: data.role || "user" 
-        };
+          const userData = {
+              idx: data.idx,
+              email: data.email,
+              name: data.name,
+              nick_name: data.nick_name,
+              role: data.role || "user"
+          };
 
-        localStorage.setItem("user", JSON.stringify(userData));
+          // ✅ 로그인 사용자 정보 저장
+          localStorage.setItem("user", JSON.stringify(userData));
+          setUser(userData);
 
-        // ✅ 전역 상태 업데이트
-        setUser(userData);
-        
-        navigate("/"); // 로그인 성공 시 메인 페이지로 이동
+          // ✅ 로그인 이전 페이지로 이동
+          const redirectTo = location.state?.from || "/";
+          console.log("🔄 이전 페이지로 이동:", redirectTo);
+          navigate(redirectTo, { replace: true });
+
       } else {
-        alert("로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.");
+          alert("로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.");
       }
-    } catch (error) {
+  } catch (error) {
       console.error("❌ 로그인 요청 중 오류 발생:", error);
       alert("서버 오류 발생! 다시 시도해주세요.");
-    }
-  };
+  }
+};
 
   return (
     <div className="login-container">

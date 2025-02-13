@@ -123,3 +123,20 @@ input[type="password"] {
     background-color: white !important;  /* ✅ 배경색을 흰색으로 유지 */
     -webkit-text-security: disc; /* ✅ 웹킷 브라우저에서 비밀번호 입력을 '●'로 표시 */
 }
+
+
+.btn.btn-outline-primary.ms-2 {
+    font-size: 14px;
+    line-height: 1.2;       /* 🔑 줄 간격 조정 */
+    display: flex;          /* 🔑 flex로 내부 정렬 */
+    flex-direction: column; /* 🔑 세로 정렬 */
+    align-items: center;    /* 🔑 중앙 정렬 */
+    justify-content: center;
+    text-align: center;
+    padding: 10px 15px;
+    height: 50px;           /* 🔑 버튼 높이 지정 */
+    white-space: normal;    /* 🔑 공백과 줄바꿈 허용 */   
+}
+
+
+
