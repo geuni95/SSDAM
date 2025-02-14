@@ -1,5 +1,5 @@
 import React from "react";
-import memberInfoImage from "../assets/images/memberinfo.png"; // 이미지 경로 수정
+import memberInfoImage from "../assets/images/memberinfo.jpg"; // 이미지 경로 수정
 import "./memberinfo.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -22,28 +22,28 @@ const MemberInfo = () => {
               <label htmlFor="name" className="form-label">
                 이름
               </label>
-              <input type="text" className="form-control" id="name" placeholder="이름 입력" />
+              <input type="text" className="form-control" id="name" placeholder="name" />
             </div>
 
             <div className="mb-3">
               <label htmlFor="nickname" className="form-label">
                 닉네임
               </label>
-              <input type="text" className="form-control" id="nickname" placeholder="닉네임 입력" />
+              <input type="text" className="form-control" id="nickname" placeholder="nick_name" />
             </div>
 
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
                 이메일
               </label>
-              <input type="email" className="form-control" id="email" placeholder="이메일 입력" />
+              <input type="email" className="form-control" id="email" placeholder="e-mail" />
             </div>
 
             <div className="mb-3">
               <label htmlFor="password" className="form-label">
                 비밀번호
               </label>
-              <input type="password" className="form-control" id="password" placeholder="비밀번호 입력" />
+              <input type="password" className="form-control" id="password" placeholder="password" />
             </div>
 
             <div className="d-flex gap-3 mt-4">

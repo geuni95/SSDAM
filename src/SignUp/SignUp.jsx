@@ -106,13 +106,13 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label className="form-label">이름</label>
-                        <input type="text" className="form-control" name="name" placeholder="Name"
+                        <input type="text" className="form-control" name="name" placeholder="name"
                             value={formData.name} onChange={handleChange} onInput={(e) => validateField(e.target)} required />
                     </div>
 
                     <div className="mb-3">
                         <label className="form-label">닉네임</label>
-                        <input type="text" className="form-control" name="nick_name" placeholder="Nickname"
+                        <input type="text" className="form-control" name="nick_name" placeholder="nick_name"
                             value={formData.nick_name} onChange={handleChange} onInput={(e) => validateField(e.target)} required />
                     </div>
 
@@ -124,7 +124,7 @@ const SignUp = () => {
                                 type="email"
                                 className="form-control"
                                 name="email"
-                                placeholder="이메일을 입력하세요"
+                                placeholder="e-mail"
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
@@ -146,13 +146,13 @@ const SignUp = () => {
 
                     <div className="mb-3">
                         <label className="form-label">비밀번호</label>
-                        <input type="password" className="form-control" name="pass" placeholder="Password"
+                        <input type="password" className="form-control" name="pass" placeholder="password"
                             value={formData.pass} onChange={handleChange} onInput={(e) => validateField(e.target)} required />
                     </div>
 
                     <div className="mb-3">
                         <label className="form-label">비밀번호 확인</label>
-                        <input type="password" className="form-control" name="confirmPass" placeholder="Confirm Password"
+                        <input type="password" className="form-control" name="confirmPass" placeholder="confirm password"
                             value={formData.confirmPass} onChange={handleChange} onInput={(e) => validateField(e.target)} required />
                     </div>
 
