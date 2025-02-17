@@ -23,45 +23,51 @@ const EditMember = () => {
   };
 
   const handleSubmit = async (event) => {
-      event.preventDefault();
+    event.preventDefault();
 
-      // 최신 formData를 기반으로 requestData 생성
-      const requestData = { 
-          idx: formData.idx, 
-          name: formData.name,
-          nick_name: formData.nick_name,
-          email: formData.email,
-          role: formData.role
-      };
+    const requestData = {
+        idx: formData.idx,
+        name: formData.name,
+        nick_name: formData.nick_name,
+        email: formData.email,
+        role: formData.role,
+    };
 
-      // 비밀번호가 입력되었을 경우에만 추가
-      if (formData.pass.trim()) {
-          requestData.pass = formData.pass;
-      }
+    if (formData.pass.trim()) {
+        requestData.pass = formData.pass;
+    }
 
-      console.log(" 서버로 전송할 데이터:", requestData); // 
+    console.log("🚀 서버로 전송할 데이터:", requestData);
 
-      try {
-          const response = await fetch("http://localhost:8587/api/edit", {
-              method: "PATCH",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(requestData) // 비밀번호가 없으면 pass 필드 제외됨
-          });
+    try {
+        const response = await fetch("http://localhost:8587/api/edit", {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify(requestData),
+        });
 
-          const data = await response.json();
-          console.log("회원정보 수정 응답:", data);
+        if (!response.ok) {
+            throw new Error(`서버 응답 실패: ${response.status}`);
+        }
 
-          if (data.result === 1) {
-              alert("회원정보 수정 성공!");
-              navigate("/");
-          } else {
-              alert("회원정보 수정 실패: 다시 시도해주세요.");
-          }
-      } catch (error) {
-          console.error("회원정보 수정 요청 중 오류 발생:", error);
-          alert("서버 오류 발생! 다시 시도해주세요.");
-      }
-  };
+        const data = await response.json();
+        console.log("✅ 서버 응답:", data);
+
+        if (data.result === 1) {
+            alert("회원정보 수정 성공!");
+            navigate("/");
+        } else {
+            alert("회원정보 수정 실패: 다시 시도해주세요.");
+        }
+    } catch (error) {
+        console.error("🔥 회원정보 수정 요청 중 오류 발생:", error);
+        alert("서버 오류 발생! 다시 시도해주세요.");
+    }
+};
 
   return (
     <div className="editmember-container">

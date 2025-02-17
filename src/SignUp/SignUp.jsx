@@ -15,15 +15,53 @@ const SignUp = () => {
         termsCheck: false
     });
 
+    const [errors, setErrors] = useState({});
+
+    const validateField = (name, value) => {
+        let error = "";
+        switch (name) {
+            case 'name':
+                if (value.length > 10 || /[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/.test(value)) {
+                    error = '이름은 10자 이내, 특수문자 불가';
+                }
+                break;
+            case 'nick_name':
+                if (value.length > 10) {
+                    error = '닉네임은 10자 이내로 입력해주세요';
+                }
+                break;
+            case 'email':
+                if (value.length > 30 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    error = '이메일은 30자 이내, 형식에 맞게 입력해주세요';
+                }
+                break;
+            case 'pass':
+                if (value.length > 10) {
+                    error = '비밀번호는 10자 이내로 입력해주세요';
+                }
+                break;
+            case 'confirmPass':
+                if (value !== formData.pass) {
+                    error = '비밀번호가 일치하지 않습니다';
+                }
+                break;
+            default:
+                break;
+        }
+        setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+    };
+
     const [emailStatus, setEmailStatus] = useState(""); // ✅ 이메일 검사 결과 메시지 저장
 
     // 📍 입력 값 변경 시 상태 업데이트
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
+        const val = type === "checkbox" ? checked : value;
         setFormData({
             ...formData,
-            [name]: type === "checkbox" ? checked : value
+            [name]: val
         });
+        validateField(name, val);
     };
 
     // 🛠️ 이메일 중복 및 유효성 검사 함수

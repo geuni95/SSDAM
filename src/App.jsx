@@ -5,14 +5,15 @@ import UploadBox from "./UploadBox/UploadBox";
 import FileInfo from './UploadBox/FileInfo';
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
-import MemberInfo from "./MemberInfo/MemberInfo";
-import EditMember from "./editMember/editMember";
+
+import EditMember from "./EditMember/EditMember";
 import MailSearch from "./AccountSearch/MailSearch";
 import PwdSearch from "./pwdSearch/PwdSearch";
 import Board from "./CommBoard/Board";
 import BoardWrite from "./CommBoard/BoardWrite";
 import BoardView from "./CommBoard/BoardView";
 import BoardEdit from "./CommBoard/BoardEdit";
+import SortDump from "./SortDump/SortDump";
 
 function App() {
   
@@ -120,13 +121,14 @@ const AppRoutes = ({ user, setUser }) => {
       <Route path="/login" element={<Login setUser={setUser} />} />
       <Route path="/edit" element={<EditMember />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/member-info" element={<MemberInfo />} />
+      
       <Route path="/mailSearch" element={<MailSearch />} />
       <Route path="/pwdSearch" element={<PwdSearch />} />
       <Route path="/commBoardList" element={<Board user={user} onLogout={handleLogout}/>} />
       <Route path="/commBoardView/:boardId" element={<BoardView user={user} />} />  
       <Route path="/commBoardEdit/:boardId" element={<BoardEdit user={user} />} />  
       <Route path="/commBoardWrite" element={<BoardWrite user={user} />} />
+      <Route path="/sortDump" element={<SortDump />} />
     </Routes>
   );
 };

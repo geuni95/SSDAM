@@ -4,22 +4,7 @@
   z-index: 999;
 }
 
-/* ✅ 버튼 크기 및 폰트 크기 반응형 조정 */
-.user-nav-button {
-  padding: 5px 10px;
-  background-color: white;
-  color: #047857;
-  font-weight: bold;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  
-  width: clamp(70px, 10vw, 120px); /* ✅ 10vw를 기준으로 최소 70px, 최대 120px */
-  text-align: center;
-  font-size: clamp(10px, 10vw, 15px); /* ✅ 기본 폰트 크기 설정 (화면 크기에 맞춰 조절) */
-  
-  transform: translateX(-78%);
-}
+
 
 /* ✅ 드롭다운이 버튼 아래에서 열리도록 유지 */
 .user-nav-dropdown {
@@ -53,4 +38,15 @@
     transform: translateX(50%);
     width: clamp(120px, 30vw, 180px); /* ✅ 작은 화면에서 적절한 크기로 조정 */
   }
+}
+
+.user-nav-button {
+  padding: 1.1vw 2vw; /* 로그인 버튼 크기를 vw로 설정하여 화면에 비례적으로 조정 */
+  background-color: #00ff515b; /* 버튼 색상 */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 2vw; /* 왼쪽 네비게이션과 간격 */
+  margin-right: 3vw; /* 오른쪽 여백 추가 */
 }

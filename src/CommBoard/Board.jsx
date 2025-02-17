@@ -139,11 +139,18 @@ const Board = () => {
                         <p>커뮤니티</p>
                     </div>
                 </div>
-                <div className="nav-links">
-                    <button onClick={() => navigate("/")}>홈</button>
-                    <button>정보</button>
-                    <button>서비스</button>
-                    {!user ? (
+               
+                <div className="navbar-item" onClick={() => navigate("/")}>
+                    <span>홈</span>
+                </div>    
+                <div className="navbar-item"><span>분류</span><span>및 폐기</span></div>
+                  <div className="navbar-item"><span>지역별</span><span>폐기물 처리</span></div>
+                  <div className="navbar-item"><span>기부</span><span>및 중고거래</span></div>
+                  
+                  <div className="navbar-item"><span>폐기물</span><span>캘린더</span></div>
+
+                <div className="navbar-right flex items-center">
+                  {!user ? (
                         <button className="login-btn" onClick={() => navigate("/login", { state: { from: location.pathname } })}>
                         로그인
                         </button>
@@ -152,9 +159,10 @@ const Board = () => {
                             로그아웃
                         </button>
                     )}
-                </div>
+                </div>    
             </nav>
 
+                    
             <h2 className="board-title">자유게시판</h2>
 
             <div className="table-container">
