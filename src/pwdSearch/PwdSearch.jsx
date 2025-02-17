@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./pwdSearch.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaGoogle, FaApple } from "react-icons/fa";
-import { RiKakaoTalkFill } from "react-icons/ri";
-import { SiNaver } from "react-icons/si";
 import passwordImage from "../assets/images/password.png";
 import PwdSearchModal from "./PwdSearchModal"; // ✅ 모달 컴포넌트 임포트
 
@@ -85,7 +82,7 @@ const PwdSearch = () => {
 
           <div className="bottom-buttons">
             <button className="btn password-btn" type="submit">비밀번호 찾기</button>
-            <button className="btn login-btn" type="button" onClick={() => navigate("/login")}>로그인화면으로</button>
+            <button className="btn login-btn" type="button" onClick={() => navigate("/login")}>로그인화면</button>
           </div>
         </form>
       </div>

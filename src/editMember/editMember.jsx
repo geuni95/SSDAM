@@ -85,25 +85,25 @@ const EditMember = () => {
             <div className="mb-3">
               <label htmlFor="name" className="form-label">이름</label>
               <input type="text" className="form-control" name="name" 
-                  placeholder="Name" value={formData.name} onChange={handleChange} />
+                  placeholder="name" value={formData.name} onChange={handleChange} />
             </div>
 
             <div className="mb-3">
               <label htmlFor="nick_name" className="form-label">닉네임</label>
               <input type="text" className="form-control" name="nick_name" 
-                  placeholder="Nickname" value={formData.nick_name} onChange={handleChange} />
+                  placeholder="nick_name" value={formData.nick_name} onChange={handleChange} />
             </div>
 
             <div className="mb-3">
               <label htmlFor="email" className="form-label">이메일</label>
               <input type="email" className="form-control" name="email" 
-                  placeholder="Email" value={formData.email} onChange={handleChange} disabled />
+                  placeholder="e-mail" value={formData.email} onChange={handleChange} disabled />
             </div>
 
             <div className="mb-3">
               <label htmlFor="pass" className="form-label">새 비밀번호</label>
               <input type="password" className="form-control" name="pass" 
-                  placeholder="New password" value={formData.pass}  
+                  placeholder="new password" value={formData.pass}  
                   onChange={(e) => setFormData({ ...formData, pass: e.target.value })} 
                 />
             </div>

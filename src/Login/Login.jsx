@@ -3,8 +3,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import computerLoginBro1 from "../assets/images/computer-login-bro-1.png"; // 이미지 경로 수정
 import "./login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaGoogle, FaApple } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
 import { SiNaver, SiKakao } from "react-icons/si";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 
 const Login = ({ setUser }) => { // ✅ props로 setUser 받기
@@ -82,7 +84,7 @@ const handleSubmit = async (event) => {
               <SiNaver />
             </button>
             <button className="icon-btn google" onClick={() => alert("구글 로그인 준비 중")}>
-              <FaGoogle />
+              <FontAwesomeIcon icon={faGoogle} />
             </button>
             <button className="icon-btn apple" onClick={() => alert("애플 로그인 준비 중")}>
               <FaApple />
@@ -98,13 +100,13 @@ const handleSubmit = async (event) => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
-                아이디(email)
+                아이디(E-mail)
               </label>
               <input
                 type="text"
                 className="form-control"
                 name="email"
-                placeholder="email 입력"
+                placeholder="email"
                 pattern=".+@.+\..+"  
                 title="올바른 이메일 주소를 입력해주세요 (예: example@email.com)"
                 value={formData.email}
@@ -121,7 +123,7 @@ const handleSubmit = async (event) => {
                 type="password"
                 className="form-control"
                 name="pass"
-                placeholder="password 입력"
+                placeholder="password"
                 value={formData.pass}
                 onChange={handleChange}
                 required

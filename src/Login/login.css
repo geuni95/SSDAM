@@ -1,19 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Sans+KR:wght@100..900&display=swap");
 /* 기본 스타일 */
 body {
     background-color: #ffffff;
-    font-family: "Nunito", sans-serif;
-    
-    
+    font-family: "Noto Sans KR", sans-serif;
   }
   
   /* 로그인 전체 컨테이너 */
   .login-container {
+    font-family: "Noto Sans KR", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f9fafb;
+<<<<<<< HEAD
     transform: scale(1.2);
+=======
+    transform: scale(1);
+>>>>>>> bc412ff5be9f73dbff93e3565a6764ed2cc9bc66
   }
   
   /* 로그인 내용 정렬 */
@@ -147,7 +151,7 @@ body {
   }
   
   .form-control::placeholder {
-    font-family: "Nunito", sans-serif !important;  /* ✅ 동일한 글꼴 적용 */
+    font-family: "Noto Sans KR", sans-serif !important;  /* ✅ 동일한 글꼴 적용 */
     font-size: 16px !important;  /* ✅ 크기 통일 */
     color: #a0aec0 !important;  /* ✅ 연한 회색 */
     font-weight: 999 !important;  /* ✅ 두께 설정 */
@@ -155,6 +159,6 @@ body {
 }
 
 input[type="password"] {
-  font-family: "Arial", sans-serif !important;  /* ✅ 비밀번호 필드만 Arial로 강제 설정 */
+  font-family: "Noto Sans KR", sans-serif !important;  /* ✅ 비밀번호 필드만 Arial로 강제 설정 */
 }
 

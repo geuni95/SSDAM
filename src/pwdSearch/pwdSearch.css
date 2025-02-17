@@ -1,123 +1,110 @@
+/* 🖥️ 메인 컨테이너 */
 .password-search-container {
+  font-family: "Noto Sans KR", sans-serif;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
+  background-color: #ffffff;
   padding: 20px;
-  background-color: #f8f9fa;
-  gap: 0px;
+  box-sizing: border-box;
 }
 
-/* 좌측 패스워드 이미지 */
-.image-container {
-  flex: 1;
+/* 📦 카드 컨테이너 */
+.password-card {
   display: flex;
-  justify-content: flex-end; /* 이미지 오른쪽 정렬 */
+  width: 900px;
+  height: 500px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.password-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 🖼️ 왼쪽 이미지 섹션 */
+.image-section {
+  flex: 1;
+  background-color: #e6f6ec;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  max-width: 45%; /* 이미지와 폼의 비율을 45%씩 설정 */
+  padding: 30px;
 }
 
 .password-image {
-  width: 100%;
-  max-width: 420px; /* 이미지 크기 조정 */
+  width: 80%;
   height: auto;
+  max-width: 400px;
+  object-fit: contain;
+  border-radius: 20px;
 }
 
-/* 우측 폼 정렬 */
-.form-container {
+/* 🔑 오른쪽 폼 섹션 */
+.form-section {
   flex: 1;
-  max-width: 45%;
+  padding: 40px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-left: 1px solid #ddd;
 }
 
+/* 📝 제목과 부제목 */
 .title {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 900;
   color: #047857;
+  margin-bottom: 15px;
 }
 
 .subtitle {
-  font-size: 16px;
-  color: #64748b;
-  margin-bottom: 20px;
+  font-size: 18px;
+  color: #6b7280;
+  margin-bottom: 30px;
 }
 
-/* 입력창 스타일 */
+/* 🔡 입력 필드 */
 .input-box {
   width: 100%;
-  max-width: 420px;
-  padding: 24px;
+  padding: 15px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 20px;
+  transition: box-shadow 0.3s;
 }
 
-/* 소셜 로그인 아이콘 스타일 */
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-  margin-top: 20px;
+.input-box:focus {
+  border-color: #047857;
+  box-shadow: 0 0 10px rgba(4, 120, 87, 0.5);
+  outline: none;
 }
 
-.social-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-/* 각 플랫폼별 색상 */
-.kakao {
-  background-color: #f8bd00;
-}
-
-.naver {
-  background-color: #03c75a;
-}
-
-.google {
-  background-color: #db4437;
-}
-
-.apple {
-  background-color: #000;
-}
-
-/* 호버 효과 */
-.social-icon:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* 버튼 그룹 정렬 */
+/* 🎯 버튼 영역 */
 .bottom-buttons {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  width: 100%;
-  max-width: 400px;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 15px;
 }
 
 .password-btn, .login-btn {
-  flex: 1;
-  padding: 12px;
+  width: 180px; /* 버튼 길이 늘림 */
+  height: 50px;
+  padding: 14px;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: white;
   border: none;
-  margin: 0 5px;
+  transition: background-color 0.3s ease;
 }
 
 .password-btn {
@@ -125,30 +112,44 @@
 }
 
 .login-btn {
-  background-color: #777b7a;
+  background-color: #ffffff;
+  color: #047857;
+  border: 2px solid #047857;
 }
 
-/* 반응형 적용 */
+/* 🖱️ 버튼 호버 효과 */
+.password-btn:hover {
+  background-color: #03654f;
+}
+
+.login-btn:hover {
+  background-color: #047857;
+  color: #ffffff;
+}
+
+/* 📱 반응형 디자인 */
 @media screen and (max-width: 768px) {
-  .password-search-container {
+  .password-card {
     flex-direction: column;
     height: auto;
   }
 
-  .image-container, .form-container {
-    max-width: 100%;
+  .image-section {
+    height: 250px;
   }
 
-  .image-container {
-    margin-bottom: 20px;
+  .form-section {
+    padding: 20px;
+    border-left: none;
+    border-top: 1px solid #ddd;
   }
 
-  .input-box, .bottom-buttons {
+  .bottom-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .password-btn, .login-btn {
     width: 100%;
-    max-width: 100%;
-  }
-
-  .social-icons {
-    flex-wrap: wrap; /* 작은 화면에서 아이콘들 줄바꿈 */
   }
 }

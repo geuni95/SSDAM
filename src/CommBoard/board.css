@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Sans+KR:wght@100..900&display=swap");
 @font-face {
   font-family: 'Cafe24Ssurround';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
@@ -6,13 +7,14 @@
 }
 
 body {
-  font-family: 'Cafe24Ssurround', sans-serif; /* 기본 폰트 설정 */
+  font-family: "Noto Sans KR", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 /*  전체 컨테이너 스타일 */
 .board-container {
+  font-family: "Noto Sans KR", sans-serif;
   padding: 0;
   background-color: #f8f9fa;
 }

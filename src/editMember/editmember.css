@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Sans+KR:wght@100..900&display=swap");
 /* 전체 컨테이너 */
 .editmember-container {
+  font-family: "Noto Sans KR", sans-serif;
   width: 100vw;
   height: 100vh; /* 화면 높이 꽉 채우기 */
   display: flex;
@@ -51,8 +53,8 @@
 }
 
 .editmember-title {
-  font-size: 2.5vh;
-  font-weight: bold;
+  font-size: 3.6vh;
+  font-weight: 800;
   color: #047857;
 }
 
