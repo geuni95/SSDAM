@@ -186,6 +186,10 @@ body {
 
 .board-form .form-group {
   margin-bottom: 15px;
+  textarea {
+    min-height: 400px; /* 기본 높이 */
+    resize: vertical;   /* 사용자 크기 조절 가능 */
+  }
 }
 
 .board-form .form-control {

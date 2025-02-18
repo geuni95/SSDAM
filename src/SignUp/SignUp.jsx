@@ -109,12 +109,12 @@ const handleNickNameCheck = async () => {
     // 🚀 폼 제출 시 실행되는 함수
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+    
         if (!formData.termsCheck) {
             alert("서비스 약관에 동의해야 합니다.");
             return;
         }
-
+    
         try {
             const response = await fetch("http://localhost:8587/api/regist", {
                 method: "POST",
@@ -124,13 +124,14 @@ const handleNickNameCheck = async () => {
                     nick_name: formData.nick_name,
                     email: formData.email,
                     pass: formData.pass,
+                    confirmPass: formData.confirmPass,  // ✅ confirmPass 추가
                     role: formData.role || "user"
                 })
             });
-
+    
             const data = await response.json();
             console.log("회원가입 응답:", data);
-
+    
             if (data.result === 1) {
                 alert("🎉 회원가입 성공!");
                 navigate("/login");
@@ -154,10 +155,20 @@ const handleNickNameCheck = async () => {
             <div className="signup-form">
                 <h2 className="signup-title">회원가입</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label className="form-label">이름</label>
-                        <input type="text" className="form-control" name="name" placeholder="name"
-                            value={formData.name} onChange={handleChange} onInput={(e) => validateField(e.target)} required />
+                <div className="mb-3">
+                    <label className="form-label">이름</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="name"
+                            placeholder="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            onInput={(e) => validateField(e.target.name, e.target.value)}
+                            required
+                        />
+                        {/* 이름 유효성 검사 결과 메시지 출력 */}
+                        {errors.name && <div className="text-danger mt-1">{errors.name}</div>}
                     </div>
 
                     <div className="mb-3">

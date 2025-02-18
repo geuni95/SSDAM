@@ -74,7 +74,10 @@ const BoardView = ({ user }) => {
           <tr><th>번호</th><td>{post.board_idx}</td><th>아이디</th><td>{post.email}</td></tr>
           <tr><th>작성일</th><td>{post.created_date}</td><th>조회수</th><td>{post.visit_count}</td></tr>
           <tr><th>제목</th><td colSpan="3">{post.title}</td></tr>
-          <tr><th>내용</th><td colSpan="3">{post.content}</td></tr>
+          <tr>
+            <th>내용</th>
+            <td colSpan="3" dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br>') }}></td>
+          </tr>
           <tr><th>👍 좋아요</th><td colSpan="3"><LikeButton boardId={post.board_idx} email={user?.email} /></td></tr>
         </tbody>
       </table>

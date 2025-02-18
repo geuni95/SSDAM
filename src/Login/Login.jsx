@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import computerLoginBro1 from "../assets/images/computer-login-bro-1.png"; // 이미지 경로 수정
 import "./login.css";
@@ -12,11 +12,21 @@ import { Link } from "react-router-dom";
 const Login = ({ setUser }) => { // ✅ props로 setUser 받기
   const navigate = useNavigate();
   const location = useLocation(); // ✅ 이전 페이지 정보 가져오기
+  const [remember, setRemember] = useState(false);
+
   
   const [formData, setFormData] = useState({
     email: "",
     pass: ""
   });
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("rememberedEmail");
+    if (savedEmail) {
+      setFormData((prev) => ({ ...prev, email: savedEmail }));
+      setRemember(true);
+    }
+  }, []);
 
   // 입력 필드 값 변경 시 상태 업데이트
   const handleChange = (e) => {
@@ -50,6 +60,13 @@ const handleSubmit = async (event) => {
               nick_name: data.nick_name,
               role: data.role || "user"
           };
+
+          if (remember) {
+            localStorage.setItem("rememberedEmail", formData.email);  // 아이디 저장
+          } else {
+            localStorage.removeItem("rememberedEmail");  // 아이디 삭제
+          };
+          
 
           // ✅ 로그인 사용자 정보 저장
           localStorage.setItem("user", JSON.stringify(userData));
@@ -131,7 +148,13 @@ const handleSubmit = async (event) => {
             </div>
 
             <div className="mb-3 form-check">
-              <input type="checkbox" className="form-check-input" id="remember" />
+              <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="remember"
+                  checked={remember}
+                  onChange={() => setRemember(!remember)}
+                />
               <label className="form-check-label" htmlFor="remember">
                 아이디 기억하기
               </label>
