@@ -25,26 +25,7 @@ const SignUp = () => {
                     error = '이름은 10자 이내, 특수문자 불가';
                 }
                 break;
-            case 'nick_name':
-                if (value.length > 10) {
-                    error = '닉네임은 10자 이내로 입력해주세요';
-                }
-                break;
-            case 'email':
-                if (value.length > 30 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-                    error = '이메일은 30자 이내, 형식에 맞게 입력해주세요';
-                }
-                break;
-            case 'pass':
-                if (value.length > 10) {
-                    error = '비밀번호는 10자 이내로 입력해주세요';
-                }
-                break;
-            case 'confirmPass':
-                if (value !== formData.pass) {
-                    error = '비밀번호가 일치하지 않습니다';
-                }
-                break;
+           
             default:
                 break;
         }
@@ -93,6 +74,37 @@ const SignUp = () => {
             setEmailStatus("🔌 서버 오류 발생. 다시 시도해 주세요.");
         }
     };
+
+// 닉네임 상태 변수 추가
+const [nickNameStatus, setNickNameStatus] = useState("");
+
+// 닉네임 중복 검사 함수
+const handleNickNameCheck = async () => {
+    const nick_name = formData.nick_name;
+
+    if (nick_name.length === 0) {
+        setNickNameStatus("⚠️ 닉네임을 입력해 주세요!");
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:8587/api/checkNickName?nick_name=${nick_name}`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+
+        const data = await response.json();
+        if (response.status === 200) {
+            setNickNameStatus("✅ 사용 가능한 닉네임입니다!");
+        } else if (response.status === 409) {
+            setNickNameStatus("🚨 이미 사용 중인 닉네임입니다!");
+        }
+    } catch (error) {
+        console.error("❌ 닉네임 중복 확인 중 오류 발생:", error);
+        setNickNameStatus("🔌 서버 오류 발생. 다시 시도해 주세요.");
+    }
+};
+
 
     // 🚀 폼 제출 시 실행되는 함수
     const handleSubmit = async (event) => {
@@ -150,8 +162,28 @@ const SignUp = () => {
 
                     <div className="mb-3">
                         <label className="form-label">닉네임</label>
-                        <input type="text" className="form-control" name="nick_name" placeholder="nick_name"
-                            value={formData.nick_name} onChange={handleChange} onInput={(e) => validateField(e.target)} required />
+                        <div className="d-flex">
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="nick_name"
+                                placeholder="nick_name"
+                                value={formData.nick_name}
+                                onChange={handleChange}
+                                required
+                            />
+                            <button
+                                type="button"
+                                className="btn btn-outline-primary ms-2"
+                                onClick={handleNickNameCheck}
+                            >
+                                중복{`\n`}닉네임{`\n`}확인
+                            </button>
+                        </div>
+                        {/* 닉네임 검사 결과 메시지 출력 */}
+                        <div className="mt-2" style={{ color: nickNameStatus.startsWith("✅") ? "green" : "red" }}>
+                            {nickNameStatus}
+                        </div>
                     </div>
 
                     {/* ✉️ 이메일 입력 */}

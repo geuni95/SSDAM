@@ -32,7 +32,7 @@ const BoardView = ({ user }) => {
       const response = await fetch("http://localhost:8587/api/comments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ board_idx: boardId, email: user?.email , role: user?.role || "USER", content: newComment }),
+        body: JSON.stringify({ board_idx: boardId,  nick_name: user?.nick_name , role: user?.role || "USER", content: newComment }),
       });
       if (response.ok) {
         setNewComment("");
@@ -84,8 +84,8 @@ const BoardView = ({ user }) => {
         <ul className="comment-list">
           {comments.map((comment) => (
             <li key={comment.comment_idx} className="comment-item">
-              <p><strong>{comment.email}</strong>: {comment.content}</p>
-              {user?.email === comment.email && (
+              <p><strong>{comment.nick_name}</strong>: {comment.content}</p>
+              {user?.nick_name === comment.nick_name && (
                 <button className="btn btn-danger btn-sm" onClick={() => handleDeleteComment(comment.comment_idx)}>삭제</button>
               )}
             </li>

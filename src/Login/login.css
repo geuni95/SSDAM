@@ -13,11 +13,8 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f9fafb;
-<<<<<<< HEAD
-    transform: scale(1.2);
-=======
-    transform: scale(1);
->>>>>>> bc412ff5be9f73dbff93e3565a6764ed2cc9bc66
+     transform: scale(1);
+
   }
   
   /* 로그인 내용 정렬 */
