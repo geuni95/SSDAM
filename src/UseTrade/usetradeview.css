@@ -11,17 +11,17 @@ body {
     padding: 0;
 }
 
-/* ⭐ 전체 페이지 설정 */
+/* 전체 페이지 설정 */
 .use-trade-container {
     font-family: 'Cafe24Ssurround', sans-serif;
     background-color: #f8f9fa;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-bottom: 80px; /* 🟢 푸터 공간 확보 */
+    padding-bottom: 80px; /* 푸터 공간 확보 */
 }
 
-/* ⭐ 네비게이션 바 고정 (화면 상단) */
+/* 네비게이션 바 고정 (화면 상단) */
 .navbar {
     background-color: #047857;
     padding: 10px 20px;
@@ -34,7 +34,7 @@ body {
     z-index: 1000;
 }
 
-/* ⭐ 본문 컨텐츠 (스크롤 가능하도록 조정) */
+/* 본문 컨텐츠 (스크롤 가능하도록 조정) */
 .trade-content {
     flex: 1;
     display: flex;
@@ -44,7 +44,7 @@ body {
     padding-top: 80px; /* 네비게이션 바와 간격 확보 */
 }
 
-/* ⭐ 제목 섹션 */
+/* 제목 섹션 */
 .trade-header {
     width: 100%;
     max-width: 800px;
@@ -67,7 +67,7 @@ body {
     color: #666;
 }
 
-/* ⭐ 본문 영역 */
+/* 본문 영역 */
 .trade-body {
     width: 100%;
     max-width: 800px;
@@ -76,7 +76,7 @@ body {
     border: 1px solid #ddd;
 }
 
-/* ⭐ 상품 이미지 컨테이너 */
+/* 상품 이미지 컨테이너 */
 .trade-image-container {
     display: flex;
     justify-content: center;
@@ -85,7 +85,7 @@ body {
     margin-top: 15px;
 }
 
-/* ⭐ 상품 이미지 (비율 유지) */
+/* 상품 이미지 (비율 유지) */
 .trade-image {
     width: 100%;
     max-height: 300px;
@@ -99,14 +99,14 @@ body {
     transform: scale(1.05);
 }
 
-/* ⭐ 이미지 상세보기 모달 */
+/* 이미지 상세보기 모달 */
 .modal-image {
     width: 100%;
     max-width: 600px;
     object-fit: contain;
 }
 
-/* ⭐ 푸터 (고정 제거 & 자동 배치) */
+/* 푸터 (고정 제거 & 자동 배치) */
 .footer {
     background-color: #047857;
     color: white;
@@ -114,6 +114,6 @@ body {
     padding: 15px;
     font-size: 18px;
     width: 100%;
-    position: relative; /* 🟢 고정 해제 */
-    margin-top: auto; /* 🟢 컨텐츠가 부족할 경우 푸터를 아래로 이동 */
+    position: relative; /* 고정 해제 */
+    margin-top: auto; /* 컨텐츠가 부족할 경우 푸터를 아래로 이동 */
 }

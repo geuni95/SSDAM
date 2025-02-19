@@ -7,12 +7,13 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f8f9fa; 
 }
 
 /* 네비게이션 바 */
 .navbar {
   background-color: #047857;
-  padding: 10px 20px;
+  padding: 12px 20px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -28,86 +29,211 @@ body {
   align-items: center;
 }
 
-.logo-image {
-  width: 40px;
-  height: auto;
-  margin-right: 10px;
+.logo-text {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
 }
 
-.logo-text {
-  font-size: 18px;
+.nav-links button {
+  background: none;
+  border: none;
   color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 15px;
 }
 
 .login-btn {
-  background-color: #00ff515b;
-  color: white;
-  border-radius: 10px;
-  padding: 0.5vw 1vw;
+  background-color: white;
+  color: #047857;
+  border-radius: 8px;
+  padding: 8px 16px;
   border: none;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
 }
 
 /* 게시글 보기 컨테이너 */
-.view-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  margin-top: 80px;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-/* 게시글 카드 */
-.view-card {
-  width: 100%;
-  max-width: 800px;
+.board-view-container {
+  max-width: 900px;
+  margin: 100px auto 50px;
   padding: 20px;
   background: white;
   border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 게시글 제목 */
-.post-title {
-  font-size: 24px;
+/* 게시글 제목 스타일 */
+.board-title {
+  font-size: 26px;
   font-weight: bold;
   color: #047857;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* 게시글 정보 */
-.post-info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  color: #666;
+/* 게시글 테이블 스타일 */
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-/* 게시글 본문 */
+.board-table th, 
+.board-table td {
+  white-space: nowrap;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.board-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* 게시글 본문 스타일 */
 .post-content {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.8;
   color: #333;
-  margin-top: 15px;
+  padding: 15px;
 }
 
-/* 버튼 그룹 */
-.button-group {
+/* 첨부파일 미리보기 스타일 */
+.file-preview {
+  display: block;
+  max-width: 100%;
+  max-height: 300px;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+/* 댓글 섹션 */
+.comments-section {
+  margin-top: 30px;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comment-item {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* ✅ 좋아요 버튼 및 댓글 입력창 스타일 */
+.like-comment-container {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px; /* 좋아요 버튼과 댓글 입력창 간격 */
   margin-top: 20px;
 }
 
-/* 푸터 */
+/* ✅ 좋아요 버튼 스타일 */
+.like-section {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  gap: 5px;
+}
+
+.like-button {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 5px;
+}
+
+/* ✅ 댓글 입력창 스타일 */
+.comment-input {
+  flex-grow: 1;
+  display: flex;
+  gap: 10px;
+}
+
+.comment-input textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ✅ 댓글 작성 버튼 */
+.comment-submit {
+  background-color: #047857;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px; 
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  flex-shrink: 0;
+  width: 140px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+/* ✅ 버튼 그룹 */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.button-group .btn {
+  width: 120px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ✅ 버튼 스타일 */
+.button-group .btn-primary {
+  background-color: #047857;
+  color: white;
+  border: none;
+}
+
+.button-group .btn-danger {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+}
+
+.button-group .btn-secondary {
+  background-color: #6b7280;
+  color: white;
+  border: none;
+}
+
+/* ✅ 푸터 스타일 */
 .footer {
   background-color: #047857;
   color: white;
   text-align: center;
   padding: 15px;
-  font-size: 18px;
+  font-size: 16px;
   width: 100%;
   position: relative;
-  margin-top: auto;
+  margin-top: 30px;
+  border-radius: 0 0 10px 10px;
 }
