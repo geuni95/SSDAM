@@ -30,17 +30,18 @@ const InforMation = () => {
                         <p>쓰담</p>
                     </div>
                 </div>
-                <div className="navbar-links">
-                    <div className="navbar-item" onClick={() => navigate("/")}>
-                        <span>홈</span>
-                    </div>  
-                    <div className="navbar-item"><span>지역별</span><span>폐기물 처리</span></div>
-                    <div className="navbar-item"><span>기부</span><span>및 중고거래</span></div>
-                    <div className="navbar-item" onClick={() => navigate("/commBoardList")}>
-                    <span>쓰담</span><span>커뮤니티</span>
-                    </div>
-                    <div className="navbar-item"><span>폐기물</span><span>캘린더</span></div>
+                {/* 네비게이션 바 중앙 메뉴 */}
+              <div className="navbar-links flex-grow flex justify-center">
+                  <div className="navbar-item" onClick={() => navigate("/sortDump")}>
+                    <span>분류</span><span>및 폐기</span>
                 </div>
+                  <div className="navbar-item"><span>지역별</span><span>폐기물 처리</span></div>
+                  <div className="navbar-item"><span>기부</span><span>및 중고거래</span></div>
+                  <div className="navbar-item" onClick={() => navigate("/commBoardList")}>
+                    <span>쓰담</span><span>커뮤니티</span>
+                  </div>
+                  <div className="navbar-item"><span>폐기물</span><span>캘린더</span></div>
+              </div>
                 
             </nav>
 

@@ -1,11 +1,11 @@
 import React from "react";
-import "./main.css"; // CSS 파일을 불러옵니다.
-import logo from "../assets/images/logo.svg"; // 로고 파일을 import
+import "./main.css"; 
+import logo from "../assets/images/logo.svg"; 
 import { useNavigate } from "react-router-dom";
 import UploadBox from "../UploadBox/UploadBox";
 import FileInfo from "../UploadBox/FileInfo";
-import UserNav from "./UserNav.jsx"; // ✅ 유저 네비게이션 추가
-import "./UserNav.css"; // CSS 파일을 불러옵니다.
+import UserNav from "./UserNav.jsx";
+import "./UserNav.css"; 
 
 export const MainPage = ({ user, onLogout }) => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export const MainPage = ({ user, onLogout }) => {
                   </div>
               </div>
 
-              {/* ✅ 네비게이션 바 중앙 메뉴 */}
+              {/* 네비게이션 바 중앙 메뉴 */}
               <div className="navbar-links flex-grow flex justify-center">
                   <div className="navbar-item" onClick={() => navigate("/sortDump")}>
                     <span>분류</span><span>및 폐기</span>
@@ -35,7 +35,7 @@ export const MainPage = ({ user, onLogout }) => {
                   <div className="navbar-item"><span>폐기물</span><span>캘린더</span></div>
               </div>
 
-              {/* ✅ 로그인 여부에 따라 프로필 or 로그인 버튼 */}
+              {/* 로그인 여부에 따라 프로필 or 로그인 버튼 */}
               <div className="navbar-right flex items-center">
                   {!user ? (
                       <button className="login-btn" onClick={() => navigate("/login", { state: { from: window.location.pathname } })}>

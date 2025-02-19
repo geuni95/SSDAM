@@ -1,16 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Sans+KR:wght@100..900&display=swap");
 .file-info .result-box {
+    font-family: 'Noto Sans KR', sans-serif;
     padding: 20px;
     border: 1px solid #eee;
     border-radius: 8px;
     background-color: #f9f9f9;
     text-align: center;
-    max-width: 600px;/* 폭 제한 */
-    margin: 0 auto;/* 중앙 정렬 */
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .image-container {
     display: inline-block;
-    /* 중앙 정렬 */
 }
 
 .result-box img {
@@ -26,12 +27,10 @@
     color: #555;
 }
 
-/* 초록색 네비게이션 바 */
-.green-navbar {
+.waste-info {
     margin-top: 20px;
-    background-color: #047857;
-    /* 초록색 */
-    color: white;
+    background-color: white;
+    color: black;
     padding: 10px 20px;
     border-radius: 8px;
     text-align: center;

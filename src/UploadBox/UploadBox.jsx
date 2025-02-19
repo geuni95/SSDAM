@@ -24,7 +24,7 @@ const UploadBox = () => {
     const file = e.dataTransfer.files[0];
     if (file) {
       console.log('Dropped file:', file);
-      setUploadedFile(file); // 업로드된 파일 상태 업데이트
+      setUploadedFile(file); 
     }
   };
 
@@ -44,8 +44,8 @@ const UploadBox = () => {
   return (
     <div className="container mt-5">
       {/* Header Section */}
-      <h2 className="text-center mb-3">사진 업로드</h2>
-      <p className="text-center text-muted mb-4">폐기물 사진을 업로드 해주세요.</p>
+      <h2 className="upload-title">사진 업로드</h2>
+      <p className="upload-description">폐기물 사진을 업로드 해주세요.</p>
 
       {/* Upload Box */}
       <div

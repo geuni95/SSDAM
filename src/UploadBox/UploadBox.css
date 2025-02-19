@@ -1,5 +1,6 @@
-/* UploadBox.css */
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Sans+KR:wght@100..900&display=swap");
 .upload-box {
+    font-family: 'Noto Sans KR', sans-serif;
     border: 2px dashed #28a745;
     border-radius: 8px;
     padding: 20px;
@@ -8,6 +9,18 @@
     transition: background-color 0.3s ease;
     max-width: 600px; /* 폭 제한 */
     margin: 0 auto; /* 중앙 정렬 */
+}
+.upload-title {
+    font-family: 'Noto Sans KR', sans-serif; 
+    font-size: 2vw; 
+    font-weight: bold; 
+    text-align: center; 
+}
+.upload-description {
+    font-family: 'Noto Sans KR', sans-serif; 
+    font-size: 1.2vw; 
+    color: #444; 
+    text-align: center; 
 }
 
 .upload-box.dragging {
@@ -23,7 +36,6 @@
     font-size: 1.1rem;
     color: #333;
 }
-
 .upload-box button {
     width: 100%;
     padding: 10px;

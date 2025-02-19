@@ -5,7 +5,6 @@ import UploadBox from "./UploadBox/UploadBox";
 import FileInfo from './UploadBox/FileInfo';
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
-
 import EditMember from "./EditMember/EditMember";
 import MailSearch from "./AccountSearch/MailSearch";
 import PwdSearch from "./pwdSearch/PwdSearch";
@@ -14,6 +13,9 @@ import BoardWrite from "./CommBoard/BoardWrite";
 import BoardView from "./CommBoard/BoardView";
 import BoardEdit from "./CommBoard/BoardEdit";
 import SortDump from "./SortDump/SortDump";
+import UseTradeWrite from "./UseTrade/UseTradeWrite";
+import UseTradeView from "./UseTrade/UseTradeView";
+import UseTradeBoard from "./UseTrade/UseTradeBoard";
 
 function App() {
   
@@ -121,7 +123,6 @@ const AppRoutes = ({ user, setUser }) => {
       <Route path="/login" element={<Login setUser={setUser} />} />
       <Route path="/edit" element={<EditMember />} />
       <Route path="/signup" element={<SignUp />} />
-      
       <Route path="/mailSearch" element={<MailSearch />} />
       <Route path="/pwdSearch" element={<PwdSearch />} />
       <Route path="/commBoardList" element={<Board user={user} onLogout={handleLogout}/>} />
@@ -129,6 +130,9 @@ const AppRoutes = ({ user, setUser }) => {
       <Route path="/commBoardEdit/:boardId" element={<BoardEdit user={user} />} />  
       <Route path="/commBoardWrite" element={<BoardWrite user={user} />} />
       <Route path="/sortDump" element={<SortDump />} />
+      <Route path="/usetradeview" element={<UseTradeView />} />
+      <Route path="/usetradewrite" element={<UseTradeWrite />} />
+      <Route path="/usetradeboard" element={<UseTradeBoard />} />
     </Routes>
   );
 };
