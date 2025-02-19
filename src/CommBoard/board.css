@@ -15,7 +15,7 @@ body {
 /*  전체 컨테이너 스타일 */
 .board-container {
   font-family: "Noto Sans KR", sans-serif;
-  padding: 0;
+  padding-top: 100px;
   background-color: #f8f9fa;
 }
 

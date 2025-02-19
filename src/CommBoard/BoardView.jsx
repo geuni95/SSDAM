@@ -32,7 +32,7 @@ const BoardView = ({ user }) => {
       const response = await fetch("http://localhost:8587/api/comments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ board_idx: boardId,  nick_name: user?.nick_name , role: user?.role || "USER", content: newComment }),
+        body: JSON.stringify({ board_idx: boardId, nick_name: user?.nick_name , role: user?.role || "USER", content: newComment }),
       });
       if (response.ok) {
         setNewComment("");
@@ -55,6 +55,64 @@ const BoardView = ({ user }) => {
     }
   };
 
+  const handleDelete = async () => {
+    if (!window.confirm("정말 삭제하시겠습니까?")) return;
+
+    try {
+      const response = await fetch(
+        'http://localhost:8587/api/commBoardDelete',
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ board_idx: boardId })
+        }
+      );
+
+      const data = await response.json();
+      console.log("서버 응답 데이터:", data); // ✅ 삭제 요청 후 서버 응답 확인
+
+      if (data.result === 1) {
+        alert("게시글이 삭제되었습니다.");
+        navigate("/commBoardList");
+      } else {
+        alert("삭제 실패: 다시 시도해주세요.");
+      }
+    } catch (error) {
+      console.error("❌ 게시글 삭제 실패:", error);
+    }
+  };
+
+  const renderFileContent = (filePath) => {
+    const fileExtension = filePath.split(".").pop().toLowerCase();
+
+    // 이미지 파일 처리
+    if (["jpg", "jpeg", "png", "gif"].includes(fileExtension)) {
+      return <img src={`http://localhost:8587${filePath}`} alt="첨부파일" className="file-preview" />;
+    }
+    
+    // 비디오 파일 처리
+    if (["mp4", "avi", "mov"].includes(fileExtension)) {
+      return (
+        <video controls className="file-preview">
+          <source src={`http://localhost:8587${filePath}`} type={`video/${fileExtension}`} />
+          Your browser does not support the video tag.
+        </video>
+      );
+    }
+
+    // 오디오 파일 처리
+    if (["mp3", "wav", "ogg"].includes(fileExtension)) {
+      return (
+        <audio controls className="file-preview">
+          <source src={`http://localhost:8587${filePath}`} type={`audio/${fileExtension}`} />
+          Your browser does not support the audio element.
+        </audio>
+      );
+    }
+
+    return <a href={`http://localhost:8587${filePath}`} target="_blank" rel="noopener noreferrer">파일 다운로드</a>;
+  };
+
   if (!post) return <p className="loading-text">게시글을 불러오는 중...</p>;
 
   return (
@@ -74,10 +132,15 @@ const BoardView = ({ user }) => {
           <tr><th>번호</th><td>{post.board_idx}</td><th>아이디</th><td>{post.email}</td></tr>
           <tr><th>작성일</th><td>{post.created_date}</td><th>조회수</th><td>{post.visit_count}</td></tr>
           <tr><th>제목</th><td colSpan="3">{post.title}</td></tr>
-          <tr>
-            <th>내용</th>
-            <td colSpan="3" dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br>') }}></td>
-          </tr>
+          <tr><th>내용</th><td colSpan="3">{post.content}</td></tr>
+          {post.ofile && (
+            <tr>
+              <th>첨부파일</th>
+              <td>
+                {renderFileContent(post.ofile)}
+              </td>
+            </tr>
+          )}
           <tr><th>👍 좋아요</th><td colSpan="3"><LikeButton boardId={post.board_idx} email={user?.email} /></td></tr>
         </tbody>
       </table>
@@ -106,7 +169,7 @@ const BoardView = ({ user }) => {
         {user && (
           <>
             <button className="btn btn-primary" onClick={() => navigate(`/commBoardEdit/${boardId}`)}>수정하기</button>
-            <button className="btn btn-danger" onClick={() => handleDelete()}>삭제하기</button>
+            <button className="btn btn-danger" onClick={handleDelete}>삭제하기</button>
           </>
         )}
         <button className="btn btn-secondary" onClick={() => navigate("/commBoardList")}>목록으로</button>

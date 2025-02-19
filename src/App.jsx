@@ -16,6 +16,7 @@ import SortDump from "./SortDump/SortDump";
 import UseTradeWrite from "./UseTrade/UseTradeWrite";
 import UseTradeView from "./UseTrade/UseTradeView";
 import UseTradeBoard from "./UseTrade/UseTradeBoard";
+import UseTradeEdit from "./UseTrade/UseTradeEdit";
 
 function App() {
   
@@ -133,6 +134,7 @@ const AppRoutes = ({ user, setUser }) => {
       <Route path="/usetradeview" element={<UseTradeView />} />
       <Route path="/usetradewrite" element={<UseTradeWrite />} />
       <Route path="/usetradeboard" element={<UseTradeBoard />} />
+      <Route path="/usetradeedit" element={<UseTradeEdit />} />
     </Routes>
   );
 };
