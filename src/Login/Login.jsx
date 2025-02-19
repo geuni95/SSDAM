@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import computerLoginBro1 from "../assets/images/computer-login-bro-1.png"; // 이미지 경로 수정
+import computerLoginBro1 from "../assets/images/computer-login-bro-1.png"; 
 import "./login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaApple } from "react-icons/fa";
@@ -9,9 +9,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 
-const Login = ({ setUser }) => { // ✅ props로 setUser 받기
+const Login = ({ setUser }) => { // props로 setUser 받기
   const navigate = useNavigate();
-  const location = useLocation(); // ✅ 이전 페이지 정보 가져오기
+  const location = useLocation(); // 이전 페이지 정보 가져오기
   const [remember, setRemember] = useState(false);
 
   
@@ -68,11 +68,11 @@ const handleSubmit = async (event) => {
           };
           
 
-          // ✅ 로그인 사용자 정보 저장
+          // 로그인 사용자 정보 저장
           localStorage.setItem("user", JSON.stringify(userData));
           setUser(userData);
 
-          // ✅ 로그인 이전 페이지로 이동
+          // 로그인 이전 페이지로 이동
           const redirectTo = location.state?.from || "/";
           console.log("🔄 이전 페이지로 이동:", redirectTo);
           navigate(redirectTo, { replace: true });
@@ -81,7 +81,7 @@ const handleSubmit = async (event) => {
           alert("로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.");
       }
   } catch (error) {
-      console.error("❌ 로그인 요청 중 오류 발생:", error);
+      console.error("로그인 요청 중 오류 발생:", error);
       alert("서버 오류 발생! 다시 시도해주세요.");
   }
 };

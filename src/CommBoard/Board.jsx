@@ -10,19 +10,19 @@ const Board = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ boardList: [], totalPages: 1 });
     const [currentPage, setCurrentPage] = useState(0);
-    const [searchWord, setSearchWord] = useState(""); // 🔍 검색어 상태 추가
-    const [searchField, setSearchField] = useState("title"); // 🔍 검색 필드 (기본값: 제목 검색)
-    const [user, setUser] = useState(null); // ✅ 로그인 상태 추가
+    const [searchWord, setSearchWord] = useState(""); // 검색어 상태 추가
+    const [searchField, setSearchField] = useState("title"); // 검색 필드 (기본값: 제목 검색)
+    const [user, setUser] = useState(null); // 로그인 상태 추가
     const rowsPerPage = 10;
 
-    // ✅ 쿠키에서 JWT 가져오기
+    // 쿠키에서 JWT 가져오기
     const getJwtFromCookie = () => {
     const cookies = document.cookie.split("; ");
     const jwtCookie = cookies.find((row) => row.startsWith("jwtToken="));
     return jwtCookie ? jwtCookie.split("=")[1] : null;
     };
 
-      // ✅ 로그인 여부 확인
+      // 로그인 여부 확인
       useEffect(() => {
         const jwtToken = getJwtFromCookie();
         if (jwtToken) {
@@ -43,7 +43,7 @@ const Board = () => {
                 }
             })
             .catch((error) => {
-                console.error("❌ 로그인 상태 확인 중 오류 발생:", error);
+                console.error(" 로그인 상태 확인 중 오류 발생:", error);
                 setUser(null);
             });
         } else {
@@ -51,7 +51,7 @@ const Board = () => {
         }
     }, []);
 
-   // ✅ 로그아웃 함수
+   // 로그아웃 함수
    const handleLogout = () => {
     document.cookie = "jwtToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 UTC;";
     localStorage.removeItem("user");
@@ -64,7 +64,7 @@ const Board = () => {
     }, [currentPage]);
 
     
-    // 📡 게시판 목록 불러오기 함수 (검색 포함)
+    // 게시판 목록 불러오기 함수 (검색 포함)
     const fetchBoardList = (query = "", field = "title", page = 0) => {
         let url = "http://localhost:8587/api/commBoardList?pageNum=" + (page + 1);
         let options = {
@@ -82,7 +82,7 @@ const Board = () => {
                 body: JSON.stringify({
                     searchField: field,
                     searchWord: [query],
-                    pageNum: page + 1, // ✅ 검색 요청에도 `pageNum` 추가
+                    pageNum: page + 1, // 검색 요청에도 `pageNum` 추가
                 }),
             };
         }
@@ -94,37 +94,37 @@ const Board = () => {
             .then((data) => {
                 console.log("📡 API 응답 데이터 확인:", data);
                 setData({
-                    boardList: data.boardList || data || [], // ✅ 검색 결과 반영
-                    totalPages: data.totalPages || 1, // ✅ 검색 결과도 페이징 가능하도록 수정
+                    boardList: data.boardList || data || [], // 검색 결과 반영
+                    totalPages: data.totalPages || 1, // 검색 결과도 페이징 가능하도록 수정
                     totalCount: data.totalCount || (data.length || 0),
                 });
             })
-            .catch((error) => console.error("❌ 게시글 불러오기 실패:", error));
+            .catch((error) => console.error(" 게시글 불러오기 실패:", error));
     };
 
-    // 🔍 검색어 변경 핸들러
+    // 검색어 변경 핸들러
     const handleSearchChange = (e) => {
         setSearchWord(e.target.value);
     };
 
-    // 🔍 검색 필드 변경 핸들러
+    // 검색 필드 변경 핸들러
     const handleSearchFieldChange = (e) => {
         setSearchField(e.target.value);
     };
 
-    // 🔍 검색 실행 함수
+    // 검색 실행 함수
     const handleSearch = () => {
         if (!searchWord.trim()) {
             alert("검색어를 입력하세요.");
             return;
         }
-        setCurrentPage(0); // ✅ 검색 시 첫 페이지부터 조회
+        setCurrentPage(0); // 검색 시 첫 페이지부터 조회
         fetchBoardList(searchWord, searchField, 0);
     };
 
-    // 📌 페이지 변경 핸들러
+    // 페이지 변경 핸들러
     const handlePageChange = ({ selected }) => {
-        console.log("📌 페이지 변경됨:", selected + 1);
+        console.log("페이지 변경됨:", selected + 1);
         setCurrentPage(selected);
         fetchBoardList(searchWord, searchField, selected);
     };
@@ -198,7 +198,7 @@ const Board = () => {
                     </tbody>
                 </Table>
                 
-                {/* 🔍 검색 입력 필드 & 버튼 추가 */}
+                {/* 검색 입력 필드 & 버튼 추가 */}
                 <div className="search-bar">
                     <select className="search-select" value={searchField} onChange={handleSearchFieldChange}>
                         <option value="title">제목</option>
@@ -231,7 +231,7 @@ const Board = () => {
                     previousLabel={"〈"}
                     nextLabel={"〉"}
                     breakLabel={"..."}
-                    pageCount={data.totalPages} // ✅ 검색 결과에도 페이징 적용
+                    pageCount={data.totalPages} // 검색 결과에도 페이징 적용
                     marginPagesDisplayed={1}
                     pageRangeDisplayed={5}
                     onPageChange={handlePageChange}

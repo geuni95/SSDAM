@@ -48,7 +48,7 @@ body {
     font-family: 'Cafe24Ssurround', sans-serif;
     margin: 0;
     font-size: 1.7vw !important; /* 글씨 크기를 vw로 설정하여 화면 너비에 맞게 유동적으로 줄어듦 */
-    color: rgb(255, 255, 255); /* 텍스트 색상 */
+    color: rgb(255, 255, 255); 
 }
 
 .navbar-links {
@@ -68,7 +68,7 @@ body {
     font-size: 1.2vw; /* 글씨 크기를 vw로 설정하여 화면 크기에 맞게 유동적으로 줄어듦 */
     color: rgb(255, 255, 255);
     cursor: pointer;
-    text-align: center; /* 중앙 정렬 */
+    text-align: center; 
     margin: 0 1vw;
 }
 
@@ -83,7 +83,7 @@ body {
 
 .login-btn {
     padding: 1.1vw 2vw; /* 로그인 버튼 크기를 vw로 설정하여 화면에 비례적으로 조정 */
-    background-color: #00ff515b; /* 버튼 색상 */
+    background-color: #00ff515b; 
     color: white;
     border: none;
     border-radius: 10px;

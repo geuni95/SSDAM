@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Container, Form, Button, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../assets/images/logo.svg";
-import "../UseTrade/usetradeedit.css";  // ✅ CSS 적용
+import "../UseTrade/usetradeedit.css";  
 
 const UseTradeEdit = ({ user }) => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const UseTradeEdit = ({ user }) => {
     email: ""
   });
 
-  // ✅ 기존 상품 데이터 불러오기
+  // 기존 상품 데이터 불러오기
   useEffect(() => {
     fetch(`http://localhost:8587/api/useTradeView?trade_idx=${tradeId}`)
       .then((response) => response.json())
@@ -32,10 +32,10 @@ const UseTradeEdit = ({ user }) => {
           email: data.email
         });
       })
-      .catch((error) => console.error("❌ 데이터 로드 실패:", error));
+      .catch((error) => console.error(" 데이터 로드 실패:", error));
   }, [tradeId]);
 
-  // ✅ 입력 필드 변경 핸들러
+  // 입력 필드 변경 핸들러
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -44,7 +44,7 @@ const UseTradeEdit = ({ user }) => {
     });
   };
 
-  // ✅ 이미지 업로드 핸들러
+  // 이미지 업로드 핸들러
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -55,7 +55,7 @@ const UseTradeEdit = ({ user }) => {
     }
   };
 
-  // ✅ 상품 수정 제출
+  // 상품 수정 제출
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -79,7 +79,7 @@ const UseTradeEdit = ({ user }) => {
         alert("상품 수정에 실패했습니다.");
       }
     } catch (error) {
-      console.error("❌ 수정 실패:", error);
+      console.error(" 수정 실패:", error);
       alert("서버 오류 발생! 다시 시도해주세요.");
     }
   };

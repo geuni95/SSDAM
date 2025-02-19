@@ -12,7 +12,7 @@ body {
     padding: 0;
 }
 
-/* ✅ 전체 페이지 스타일 */
+/* 전체 페이지 스타일 */
 .use-trade-edit-container {
     background-color: #f8f9fa;
     display: flex;
@@ -22,7 +22,7 @@ body {
     justify-content: center;
 }
 
-/* ✅ 수정 폼 */
+/* 수정 폼 */
 .edit-form-container {
     width: 90%;
     margin-top: 90px;
@@ -37,14 +37,14 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ 입력 필드 */
+/* 입력 필드 */
 .form-control {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
 }
 
-/* ✅ 버튼 스타일 */
+/* 버튼 스타일 */
 .btn {
     font-size: 16px;
     padding: 10px;

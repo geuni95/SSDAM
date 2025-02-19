@@ -30,7 +30,7 @@
   z-index: 1000;
 }
 
-/* ✅ 네비게이션 내부 폰트 및 버튼 크기 줄이기 */
+/* 네비게이션 내부 폰트 및 버튼 크기 줄이기 */
 .navbar-item {
   font-size: 16px;
   color: white;
@@ -76,7 +76,7 @@
 .use-trade-table td {
   font-size: 14px;
 }
-/* ✅ 테이블 컬럼 너비 조정 */
+/* 테이블 컬럼 너비 조정 */
 .use-trade-table th:nth-child(1), /* 번호 */
 .use-trade-table td:nth-child(1) {
     width: 4%;
@@ -106,7 +106,7 @@
 .use-trade-table td:nth-child(6) {
     width: 40%;
 }
-/* ✅ 거래 상태 태그 */
+/* 거래 상태 태그 */
 .trade-status {
   padding: 5px 10px;
   border-radius: 5px;
@@ -123,7 +123,7 @@
   color: black;
 }
 
-/* ✅ 검색바 */
+/* 검색바 */
 .search-bar {
   display: flex;
   justify-content: center;
@@ -145,14 +145,14 @@
   border-radius: 5px;
 }
 
-/* ✅ 버튼 그룹 */
+/* 버튼 그룹 */
 .button-group {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-/* ✅ 작성 버튼 */
+/* 작성 버튼 */
 .write-btn {
   background-color: #047857;
   color: white;
@@ -168,7 +168,7 @@
   background-color: #065f46;
 }
 
-/* ✅ 페이지네이션 */
+/* 페이지네이션 */
 .pagination-container {
   display: flex;
   justify-content: center;
@@ -208,7 +208,7 @@
   color: white;
 }
 
-/* ✅ 푸터 */
+/* 푸터 */
 .use-trade-footer {
   text-align: center;
   margin-top: 20px;
@@ -218,7 +218,7 @@
   font-size: 14px;
 }
 
-/* ✅ 반응형 디자인 */
+/* 반응형 디자인 */
 @media (max-width: 768px) {
   .use-trade-table {
     font-size: 12px;

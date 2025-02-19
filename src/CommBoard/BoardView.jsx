@@ -21,11 +21,11 @@ const BoardView = ({ user }) => {
       fetch(`http://localhost:8587/api/commBoardView?board_idx=${boardId}`, { credentials: "include" })
         .then((res) => res.json())
         .then((data) => setPost(data))
-        .catch((error) => console.error("❌ 게시글 불러오기 실패:", error));
+        .catch((error) => console.error(" 게시글 불러오기 실패:", error));
       fetch(`http://localhost:8587/api/comments/${boardId}`)
         .then((res) => res.json())
         .then((data) => setComments(data))
-        .catch((err) => console.error("❌ 댓글 가져오기 실패:", err));
+        .catch((err) => console.error(" 댓글 가져오기 실패:", err));
     }
   }, [boardId]);
 
@@ -44,7 +44,7 @@ const BoardView = ({ user }) => {
           .then((data) => setComments(data));
       }
     } catch (err) {
-      alert("❌ 댓글 추가 실패: " + err.message);
+      alert(" 댓글 추가 실패: " + err.message);
     }
   };
 
@@ -54,7 +54,7 @@ const BoardView = ({ user }) => {
       const response = await fetch(`http://localhost:8587/api/comments/${commentIdx}`, { method: "DELETE" });
       if (response.ok) setComments(comments.filter((c) => c.comment_idx !== commentIdx));
     } catch (error) {
-      console.error("❌ 댓글 삭제 실패:", error);
+      console.error(" 댓글 삭제 실패:", error);
     }
   };
 
@@ -72,7 +72,7 @@ const BoardView = ({ user }) => {
       );
 
       const data = await response.json();
-      console.log("서버 응답 데이터:", data); // ✅ 삭제 요청 후 서버 응답 확인
+      console.log("서버 응답 데이터:", data); // 삭제 요청 후 서버 응답 확인
 
       if (data.result === 1) {
         alert("게시글이 삭제되었습니다.");
@@ -81,7 +81,7 @@ const BoardView = ({ user }) => {
         alert("삭제 실패: 다시 시도해주세요.");
       }
     } catch (error) {
-      console.error("❌ 게시글 삭제 실패:", error);
+      console.error(" 게시글 삭제 실패:", error);
     }
   };
 
@@ -168,7 +168,7 @@ const BoardView = ({ user }) => {
           ))}
         </ul>
       </div>
-      {/* ✅ 좋아요 버튼과 댓글 입력창을 한 줄에 배치 */}
+      {/* 좋아요 버튼과 댓글 입력창을 한 줄에 배치 */}
       <div className="like-comment-container">
         {/* 좋아요 버튼 */}
         <div className="like-section">
@@ -179,22 +179,22 @@ const BoardView = ({ user }) => {
           <div className="comment-input">
             <textarea value={newComment} onChange={(e) => setNewComment(e.target.value)} placeholder="댓글을 입력하세요"></textarea>
             <button className="btn btn-primary" onClick={handleAddComment}>
-        <FontAwesomeIcon icon={faPaperPlane} />
-      </button>
+              <FontAwesomeIcon icon={faPaperPlane} />
+            </button>
           </div>
         )}
-</div>
-        <div className="button-group">
-          {user && (
-            <>
-              <button className="btn btn-primary" onClick={() => navigate(`/commBoardEdit/${boardId}`)}>수정하기</button>
-              <button className="btn btn-danger" onClick={handleDelete}>삭제하기</button>
-            </>
-          )}
-          <button className="btn btn-secondary" onClick={() => navigate("/commBoardList")}>목록으로</button>
-        </div>
       </div>
-      );
+      <div className="button-group">
+        {user && (
+          <>
+            <button className="btn btn-primary" onClick={() => navigate(`/commBoardEdit/${boardId}`)}>수정하기</button>
+            <button className="btn btn-danger" onClick={handleDelete}>삭제하기</button>
+          </>
+        )}
+        <button className="btn btn-secondary" onClick={() => navigate("/commBoardList")}>목록으로</button>
+      </div>
+    </div>
+  );
 };
 
-      export default BoardView;
+export default BoardView;

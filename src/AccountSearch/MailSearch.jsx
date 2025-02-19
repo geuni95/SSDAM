@@ -47,12 +47,12 @@ const MailSearch = () => {
   return (
     <div className="mail-search-container">
       <div className="combined-card">
-        {/* 📌 왼쪽 이미지 영역 */}
+        {/* 왼쪽 이미지 영역 */}
         <div className="image-section">
           <img src={mailImage} alt="메일 찾기" className="mail-image" />
         </div>
 
-        {/* 📌 오른쪽 폼 영역 */}
+        {/* 오른쪽 폼 영역 */}
         <div className="form-section">
           <h2 className="title">이메일 찾기</h2>
           <p className="subtitle">등록된 정보로 이메일 찾기</p>
@@ -75,7 +75,7 @@ const MailSearch = () => {
               onChange={handleChange} 
             />
 
-            {/* 📌 소셜 로그인 아이콘 */}
+            {/* 소셜 로그인 아이콘 */}
             <div className="social-icons">
               <div className="social-icon kakao"><RiKakaoTalkFill /></div>
               <div className="social-icon naver"><SiNaver /></div>
@@ -83,7 +83,7 @@ const MailSearch = () => {
               <div className="social-icon apple"><FaApple /></div>
             </div>
 
-            {/* 📌 하단 버튼 */}
+            {/* 하단 버튼 */}
             <div className="bottom-buttons">
               <button className="btn email-btn" type="submit">이메일 찾기</button>
               <button className="btn login-btn" type="button" onClick={() => navigate("/login")}>로그인 화면으로</button>
@@ -92,7 +92,7 @@ const MailSearch = () => {
         </div>
       </div>
 
-      {/* 📌 이메일 찾기 성공 시 모달 표시 */}
+      {/* 이메일 찾기 성공 시 모달 표시 */}
       {showPopup && (
         <EmailPopup
           email={email}

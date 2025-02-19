@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Sans+KR:wght@100..900&display=swap");
 
-/* 🖥️ 메인 컨테이너 */
+/* 메인 컨테이너 */
 .mail-search-container {
   font-family: "Noto Sans KR", sans-serif;
   display: flex;
@@ -12,7 +12,7 @@
   box-sizing: border-box;
 }
 
-/* 🖼️ 전체 카드 */
+/* 전체 카드 */
 .combined-card {
   display: flex;
   width: 900px;
@@ -23,7 +23,7 @@
   background-color: #ffffff;
 }
 
-/* 📸 왼쪽 이미지 섹션 */
+/* 왼쪽 이미지 섹션 */
 .image-section {
   flex: 1;
   background-color: #ffffff;
@@ -40,7 +40,7 @@
   object-fit: contain;
 }
 
-/* 🖊️ 오른쪽 폼 섹션 */
+/* 오른쪽 폼 섹션 */
 .form-section {
   flex: 1;
   padding: 40px;
@@ -50,7 +50,7 @@
   justify-content: center;
 }
 
-/* 📝 제목과 부제목 */
+/* 제목과 부제목 */
 .title {
   font-size: 32px;
   font-weight: 900;
@@ -64,7 +64,7 @@
   margin-bottom: 30px;
 }
 
-/* 🔡 입력 필드 */
+/* 입력 필드 */
 .input-box {
   width: 100%;
   padding: 15px;
@@ -82,7 +82,7 @@
   outline: none;
 }
 
-/* 🔘 소셜 로그인 아이콘 */
+/* 소셜 로그인 아이콘 */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -117,13 +117,13 @@
   background-color: #000;
 }
 
-/* 🖱️ 소셜 아이콘 호버 효과 */
+/* 소셜 아이콘 호버 효과 */
 .social-icon:hover {
   transform: scale(1.1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* 🔳 버튼 영역 */
+/* 버튼 영역 */
 .bottom-buttons {
   display: flex;
   justify-content: space-between;
@@ -159,7 +159,7 @@
   background-color: #047857;
 }
 
-/* 📱 반응형 디자인 */
+/* 반응형 디자인 */
 @media screen and (max-width: 768px) {
   .combined-card {
     flex-direction: column;

@@ -34,7 +34,7 @@ const SignUp = () => {
 
     const [emailStatus, setEmailStatus] = useState(""); // ✅ 이메일 검사 결과 메시지 저장
 
-    // 📍 입력 값 변경 시 상태 업데이트
+    // 입력 값 변경 시 상태 업데이트
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         const val = type === "checkbox" ? checked : value;
@@ -45,18 +45,18 @@ const SignUp = () => {
         validateField(name, val);
     };
 
-    // 🛠️ 이메일 중복 및 유효성 검사 함수
+    // 이메일 중복 및 유효성 검사 함수
     const handleEmailCheck = async () => {
         const email = formData.email;
 
-        // 1️⃣ 이메일 유효성 검사
+        // 1️이메일 유효성 검사
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
             setEmailStatus("⚠️ 올바른 이메일 형식을 입력해 주세요!");
             return;
         }
 
-        // 2️⃣ 이메일 중복 체크 요청
+        // 2️이메일 중복 체크 요청
         try {
             const response = await fetch(`http://localhost:8587/api/checkEmail?email=${email}`, {
                 method: "GET",
@@ -95,18 +95,18 @@ const handleNickNameCheck = async () => {
 
         const data = await response.json();
         if (response.status === 200) {
-            setNickNameStatus("✅ 사용 가능한 닉네임입니다!");
+            setNickNameStatus("사용 가능한 닉네임입니다!");
         } else if (response.status === 409) {
-            setNickNameStatus("🚨 이미 사용 중인 닉네임입니다!");
+            setNickNameStatus("이미 사용 중인 닉네임입니다!");
         }
     } catch (error) {
-        console.error("❌ 닉네임 중복 확인 중 오류 발생:", error);
-        setNickNameStatus("🔌 서버 오류 발생. 다시 시도해 주세요.");
+        console.error("닉네임 중복 확인 중 오류 발생:", error);
+        setNickNameStatus("서버 오류 발생. 다시 시도해 주세요.");
     }
 };
 
 
-    // 🚀 폼 제출 시 실행되는 함수
+    // 폼 제출 시 실행되는 함수
     const handleSubmit = async (event) => {
         event.preventDefault();
     
@@ -124,7 +124,7 @@ const handleNickNameCheck = async () => {
                     nick_name: formData.nick_name,
                     email: formData.email,
                     pass: formData.pass,
-                    confirmPass: formData.confirmPass,  // ✅ confirmPass 추가
+                    confirmPass: formData.confirmPass,  // confirmPass 추가
                     role: formData.role || "user"
                 })
             });
@@ -133,18 +133,16 @@ const handleNickNameCheck = async () => {
             console.log("회원가입 응답:", data);
     
             if (data.result === 1) {
-                alert("🎉 회원가입 성공!");
+                alert("회원가입 성공!");
                 navigate("/login");
             } else {
-                alert(`❌ 회원가입 실패: ${data.message}`);
+                alert(`회원가입 실패: ${data.message}`);
             }
         } catch (error) {
             console.error("회원가입 요청 중 오류 발생:", error);
-            alert("❌ 서버 오류 발생! 다시 시도해주세요.");
+            alert("서버 오류 발생! 다시 시도해주세요.");
         }
     };
-
-
 
 
     return (
@@ -197,7 +195,7 @@ const handleNickNameCheck = async () => {
                         </div>
                     </div>
 
-                    {/* ✉️ 이메일 입력 */}
+                    {/* 이메일 입력 */}
                     <div className="mb-3">
                         <label className="form-label">이메일</label>
                         <div className="d-flex">
@@ -218,7 +216,7 @@ const handleNickNameCheck = async () => {
                                  중복{`\n`}이메일{`\n`}확인
                             </button>
                         </div>
-                        {/* 🔍 이메일 검사 결과 메시지 출력 */}
+                        {/* 이메일 검사 결과 메시지 출력 */}
                         <div className="mt-2" style={{ color: emailStatus.startsWith("✅") ? "green" : "red" }}>
                             {emailStatus}
                         </div>

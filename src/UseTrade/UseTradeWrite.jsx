@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Form, Button, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../assets/images/logo.svg";
-import "../UseTrade/usetradewrite.css";  // ✅ CSS 경로 수정
+import "../UseTrade/usetradewrite.css";  
 
 const UseTradeWrite = () => {
   const [title, setTitle] = useState("");

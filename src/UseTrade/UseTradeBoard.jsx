@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import logo from "../assets/images/logo.svg";
-import "../UseTrade/usetradeboard.css";  // ✅ CSS 파일 불러오기
+import "../UseTrade/usetradeboard.css";  
 
 const UseTradeBoard = () => {
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ const UseTradeBoard = () => {
         fetchBoardList(searchWord, searchField, currentPage);
     }, [currentPage]);
 
-    // 📡 중고거래 게시판 목록 불러오기 함수
+    // 중고거래 게시판 목록 불러오기 함수
     const fetchBoardList = (query = "", field = "title", page = 0) => {
         let url = `http://localhost:8587/api/tradeBoardList?pageNum=${page + 1}`;
         let options = {
@@ -50,20 +50,20 @@ const UseTradeBoard = () => {
                     totalCount: data.totalCount || (data.length || 0),
                 });
             })
-            .catch((error) => console.error("❌ 게시글 불러오기 실패:", error));
+            .catch((error) => console.error(" 게시글 불러오기 실패:", error));
     };
 
-    // 🔍 검색어 변경 핸들러
+    // 검색어 변경 핸들러
     const handleSearchChange = (e) => {
         setSearchWord(e.target.value);
     };
 
-    // 🔍 검색 필드 변경 핸들러
+    // 검색 필드 변경 핸들러
     const handleSearchFieldChange = (e) => {
         setSearchField(e.target.value);
     };
 
-    // 🔍 검색 실행 함수
+    // 검색 실행 함수
     const handleSearch = () => {
         if (!searchWord.trim()) {
             alert("검색어를 입력하세요.");
@@ -73,7 +73,7 @@ const UseTradeBoard = () => {
         fetchBoardList(searchWord, searchField, 0);
     };
 
-    // 📌 페이지 변경 핸들러
+    // 페이지 변경 핸들러
     const handlePageChange = ({ selected }) => {
         setCurrentPage(selected);
         fetchBoardList(searchWord, searchField, selected);

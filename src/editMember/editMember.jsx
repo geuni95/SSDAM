@@ -37,7 +37,7 @@ const EditMember = () => {
         requestData.pass = formData.pass;
     }
 
-    console.log("🚀 서버로 전송할 데이터:", requestData);
+    console.log("서버로 전송할 데이터:", requestData);
 
     try {
         const response = await fetch("http://localhost:8587/api/edit", {
@@ -55,7 +55,7 @@ const EditMember = () => {
         }
 
         const data = await response.json();
-        console.log("✅ 서버 응답:", data);
+        console.log("서버 응답:", data);
 
         if (data.result === 1) {
             alert("회원정보 수정 성공!");
@@ -64,7 +64,7 @@ const EditMember = () => {
             alert("회원정보 수정 실패: 다시 시도해주세요.");
         }
     } catch (error) {
-        console.error("🔥 회원정보 수정 요청 중 오류 발생:", error);
+        console.error("회원정보 수정 요청 중 오류 발생:", error);
         alert("서버 오류 발생! 다시 시도해주세요.");
     }
 };

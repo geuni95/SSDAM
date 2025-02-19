@@ -16,13 +16,13 @@ const PwdSearchModal = ({ showModal, onClose, onConfirm }) => {
     console.log("저장된 임시 비밀번호:", storedTempPassword);
 
     if (tempPassword.trim() === storedTempPassword?.trim()) {
-      onConfirm(); // ✅ 비밀번호 일치 시 부모 컴포넌트에서 페이지 이동 처리
+      onConfirm(); // 비밀번호 일치 시 부모 컴포넌트에서 페이지 이동 처리
     } else {
       alert("임시 비밀번호가 올바르지 않습니다.");
     }
   };
 
-  if (!showModal) return null; // ✅ 모달이 닫혀 있으면 아무것도 렌더링하지 않음
+  if (!showModal) return null; // 모달이 닫혀 있으면 아무것도 렌더링하지 않음
 
   return (
     <div className="popup-overlay">

@@ -1,4 +1,4 @@
-/* 🖥️ 메인 컨테이너 */
+/* 메인 컨테이너 */
 .password-search-container {
   font-family: "Noto Sans KR", sans-serif;
   display: flex;
@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-/* 📦 카드 컨테이너 */
+/* 카드 컨테이너 */
 .password-card {
   display: flex;
   width: 900px;
@@ -26,7 +26,7 @@
   transform: translateY(-5px);
 }
 
-/* 🖼️ 왼쪽 이미지 섹션 */
+/* 왼쪽 이미지 섹션 */
 .image-section {
   flex: 1;
   background-color: #e6f6ec;
@@ -44,7 +44,7 @@
   border-radius: 20px;
 }
 
-/* 🔑 오른쪽 폼 섹션 */
+/* 오른쪽 폼 섹션 */
 .form-section {
   flex: 1;
   padding: 40px;
@@ -56,7 +56,7 @@
   border-left: 1px solid #ddd;
 }
 
-/* 📝 제목과 부제목 */
+/* 제목과 부제목 */
 .title {
   font-size: 32px;
   font-weight: 900;
@@ -70,7 +70,7 @@
   margin-bottom: 30px;
 }
 
-/* 🔡 입력 필드 */
+/* 입력 필드 */
 .input-box {
   width: 100%;
   padding: 15px;
@@ -87,7 +87,7 @@
   outline: none;
 }
 
-/* 🎯 버튼 영역 */
+/* 버튼 영역 */
 .bottom-buttons {
   display: flex;
   justify-content: center;
@@ -117,7 +117,7 @@
   border: 2px solid #047857;
 }
 
-/* 🖱️ 버튼 호버 효과 */
+/* 버튼 호버 효과 */
 .password-btn:hover {
   background-color: #03654f;
 }
@@ -127,7 +127,7 @@
   color: #ffffff;
 }
 
-/* 📱 반응형 디자인 */
+/* 반응형 디자인 */
 @media screen and (max-width: 768px) {
   .password-card {
     flex-direction: column;

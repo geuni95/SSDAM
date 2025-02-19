@@ -91,14 +91,14 @@ const BoardWrite = ({ user }) => {
                 alert("등록 실패: 다시 시도해주세요.");
             }
         } catch (error) {
-            console.error("❌ 게시글 등록 실패:", error);
+            console.error(" 게시글 등록 실패:", error);
             alert("서버 오류 발생! 다시 시도해주세요.");
         } finally {
             setIsUploading(false); // 업로드 완료
         }
     };
 
-    // 📌 목록으로 가는 함수 추가
+    // 목록으로 가는 함수 추가
     const handleCancel = () => {
         navigate("/commBoardList"); //게시판 목록으로 이동
     };

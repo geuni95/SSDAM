@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./pwdSearch.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import passwordImage from "../assets/images/password.png";
-import PwdSearchModal from "./PwdSearchModal"; // ✅ 모달 컴포넌트 임포트
+import PwdSearchModal from "./PwdSearchModal"; 
 
 const PwdSearch = () => {
   const navigate = useNavigate();
@@ -49,8 +49,6 @@ const PwdSearch = () => {
     }
   };
 
-  
-
   return (
     <div className="password-search-container">
       <div className="image-container">
@@ -87,7 +85,7 @@ const PwdSearch = () => {
         </form>
       </div>
 
-      {/* ✅ 모달 추가 */}
+      {/* 모달 추가 */}
       <PwdSearchModal 
         showModal={showModal} 
         onClose={() => setShowModal(false)} 
