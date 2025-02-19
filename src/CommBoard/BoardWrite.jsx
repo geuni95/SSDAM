@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./board.css";
+import "../CommBoard/boardwrite.css";
 
 const BoardWrite = ({ user }) => {
     const navigate = useNavigate();
 
-    // ✅ 로그인 확인 후 비로그인 상태면 로그인 페이지로 이동
+    //로그인 확인 후 비로그인 상태면 로그인 페이지로 이동
     useEffect(() => {
         if (!user || !user.email) {
             alert("로그인이 필요합니다.");
@@ -78,7 +78,7 @@ const BoardWrite = ({ user }) => {
 
             const response = await fetch("http://localhost:8587/api/commBoardWrite", {
                 method: "POST",
-                body: formDataToSend, // ✅ FormData로 전송
+                body: formDataToSend, //FormData로 전송
             });
 
             const data = await response.json();
@@ -96,6 +96,11 @@ const BoardWrite = ({ user }) => {
         } finally {
             setIsUploading(false); // 업로드 완료
         }
+    };
+
+    // 📌 목록으로 가는 함수 추가
+    const handleCancel = () => {
+        navigate("/commBoardList"); //게시판 목록으로 이동
     };
 
     return (
@@ -126,20 +131,27 @@ const BoardWrite = ({ user }) => {
                         required
                     />
                 </div>
-                <div className="form-group">
-                    <label>파일 첨부</label>
+                <div className="form-group file-upload">
+                    <label htmlFor="file-upload" className="custom-file-label">
+                        {selectedFile && `(${selectedFile.name})`}
+                    </label>
                     <input
                         type="file"
-                        className="form-control"
+                        id="file-upload"
+                        className="file-input"
                         onChange={handleFileChange}
                     />
-                    {/* 선택된 파일 이름 표시 */}
-                    {selectedFile && <div>선택된 파일: {selectedFile.name}</div>}
                 </div>
                 {isUploading && <div>업로드 중...</div>} {/* 업로드 상태 표시 */}
-                <button type="submit" className="btn btn-success w-100">
-                    작성 완료
-                </button>
+                {/* 버튼 그룹 수정 - 작성 완료 + 목록으로 가기 버튼 추가 */}
+                <div className="button-group">
+                    <button type="submit" className="btn btn-success">
+                        작성 완료
+                    </button>
+                    <button type="button" className="btn btn-secondary" onClick={handleCancel}>
+                        목록으로
+                    </button>
+                </div>
             </form>
         </div>
     );

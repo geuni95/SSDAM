@@ -1,60 +1,106 @@
-@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Sans+KR:wght@100..900&display=swap");
 @font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-body {
-    font-family: "Noto Sans KR", sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: 'Cafe24Ssurround';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
 }
 
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 네비게이션 바 */
 .navbar {
   background-color: #047857;
-  padding: 20px 20px;
+  padding: 10px 20px;
   width: 100%;
   display: flex;
   align-items: center;
-  position: sticky;
-  top: 0px;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
   left: 0;
   z-index: 1000;
 }
 
-.board-view-container {
-  width: 900%;           /* 기존 60% → 80%로 확대 */
-  max-width: 1200px;    /* 최대 너비를 1200px로 확대 */
-  margin: 40px auto;    /* 중앙 정렬 유지 */
-  padding: 20px 30px;   /* 패딩 증가로 내부 여백 확보 */
-  background-color: white;
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 18px;
+  color: white;
+}
+
+.login-btn {
+  background-color: #00ff515b;
+  color: white;
   border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5vw 1vw;
+  border: none;
+  cursor: pointer;
 }
 
-
-.board-title {
-  text-align: center;
-  margin: 20px 0;
+/* 게시글 보기 컨테이너 */
+.view-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.table.board-table {
-  width: 100%;         /* board-view-container 크기만큼 확장 */
-  margin: 20px auto;
-  border: 1px solid #ddd;
-  max-width: 100%;     /* 100%까지 확장 */
-  min-width: 1000px; 
+/* 게시글 카드 */
+.view-card {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* 게시글 제목 */
+.post-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #047857;
+}
 
+/* 게시글 정보 */
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666;
+}
+
+/* 게시글 본문 */
+.post-content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin-top: 15px;
+}
+
+/* 버튼 그룹 */
 .button-group {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin: 20px 0;
+  margin-top: 20px;
 }
 
+/* 푸터 */
 .footer {
   background-color: #047857;
   color: white;
