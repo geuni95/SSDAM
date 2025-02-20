@@ -403,7 +403,7 @@ body {
 
 
 .logout-btn {
-  padding: 1.1vw 2vw; /* 로그인 버튼 크기를 vw로 설정하여 화면에 비례적으로 조정 */
+  padding: 1.0vw 1.0vw; /* 로그인 버튼 크기를 vw로 설정하여 화면에 비례적으로 조정 */
   background-color: #00ff515b; /* 버튼 색상 */
   color: white;
   border: none;
